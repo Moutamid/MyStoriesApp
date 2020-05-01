@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,19 +20,17 @@ import java.util.ArrayList;
 public class ConversationActivity extends AppCompatActivity {
     private static final String TAG = "ConversationActivity";
 
-    //private ArrayList<String> chatList = new ArrayList<>();
+    private int counter = 0;
+    private Utils utils = new Utils();
 
-    private Handler handler;
-    int counter = 0;
-
-    private Button nextBtn;
-    private ImageView myMsgStatusImg;
-    private RecyclerView nmbrChatRecyclerView;
+    private RecyclerView conversationRecyclerView;
     private RecyclerViewAdapterMessages adapter;
-    private LinearLayoutManager linearLayoutManager;
 
-    private ArrayList<ChatMessage> messagesArrayList = new ArrayList<>();
-    private ArrayList<ChatMessage> chatFullList = new ArrayList<>();
+    private RelativeLayout middleLayout;
+    private Button nextBtn;
+
+    private ArrayList<ChatMessage> currentMessagesArrayList = new ArrayList<>();
+    private ArrayList<ChatMessage> completeMessagesArrayList = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,27 +38,15 @@ public class ConversationActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started");
 
         nextBtn = findViewById(R.id.nxt_btn_conversation_activity);
-        myMsgStatusImg = findViewById(R.id.myMessageStatus);
+        middleLayout = findViewById(R.id.middle_layout_conversation);
         nextBtn.setOnClickListener(nextBtnClickListener());
 
-        handler = new Handler();
-
         fillArrayListWithData();
-        messagesArrayList.add(new ChatMessage("fillArrayListWithData Hi", "user"));
+
+        currentMessagesArrayList.add(completeMessagesArrayList.get(counter));
+
         initRecyclerView();
 
-        setMyMsgStatusImg();
-        disableNextBtnFor3Secs();
-
-//        ChatsRecyclerViewAdapter nmbrChatAdapter = new ChatsRecyclerViewAdapter();
-//
-//        nmbrChatRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        nmbrChatRecyclerView.setHasFixedSize(true);
-//
-//        nmbrChatRecyclerView.setNestedScrollingEnabled(false);
-//
-//        nmbrChatRecyclerView.setAdapter(nmbrChatAdapter);
     }
 
     private View.OnClickListener nextBtnClickListener() {
@@ -73,224 +57,155 @@ public class ConversationActivity extends AppCompatActivity {
 
                 counter++;
 
-                if (counter <= chatFullList.size() - 1) {
-                    String msg = chatFullList.get(counter).getMsgText();
-                    String msgUser = chatFullList.get(counter).getMsgUser();
+                // CHECKING IF CHAT MESSAGES ENDED OR NOT
+                if (counter <= completeMessagesArrayList.size() - 1) {
+                    String msg = completeMessagesArrayList.get(counter).getMsgText();
+                    String msgUser = completeMessagesArrayList.get(counter).getMsgUser();
 
-                    adapter.addMessage(new ChatMessage(msg, msgUser));
+                    if (msgUser.equals("middle"))
+                        showMiddleScreen(msg);
 
-                    if (msgUser.equals("user")) {
-                        setMyMsgStatusImg();
-                        disableNextBtnFor3Secs();
-                    }
+                     else
+                        adapter.addMessage(new ChatMessage(msg, msgUser));
 
                 } else
-                    Toast.makeText(ConversationActivity.this, "Chat ended", Toast.LENGTH_SHORT).show();
-
+                    showMiddleScreen("CHAT ENDED");
 
             }
         };
     }
 
-    private void disableNextBtnFor3Secs(){
-        nextBtn.setEnabled(false);
+    private void showMiddleScreen(String msg) {
+        Log.d(TAG, "showMiddleScreen");
+
+        TextView middleScreenText = findViewById(R.id.middle_msg_textview);
+        middleScreenText.setText(msg);
         nextBtn.setTranslationY(400f);
-        handler.postDelayed(new Runnable() {
+
+        middleLayout.animate().alpha(1).setDuration(1500);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                nextBtn.animate().translationYBy(-400f).setDuration(100);
-                nextBtn.setEnabled(true);
+                middleLayout.animate().alpha(0).setDuration(1500);
+                nextBtn.animate().translationYBy(-400f).setDuration(400);
             }
-        }, 3100);
+        }, 3000);
     }
-
-    private void setMyMsgStatusImg() {
-        Log.d(TAG, "setMyMsgStatusImg: ");
-
-        myMsgStatusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_circle_blue));
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "run: handler.postDelayed");
-                myMsgStatusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_delivered_circle));
-                setDeliveredImage();
-            }
-        }, 1000);
-
-    }
-
-    private void setDeliveredImage() {
-        Log.d(TAG, "setDeliveredImage: ");
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "run: handler.postDelayed");
-                myMsgStatusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_double_tick_blue));
-                setSeenImage();
-            }
-        }, 1000);
-
-    }
-
-    private void setSeenImage() {
-        Log.d(TAG, "setSeenImage: ");
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "run: handler.postDelayed");
-                myMsgStatusImg.setImageDrawable(getResources().getDrawable(R.drawable.image));
-
-                Toast.makeText(ConversationActivity.this, "Timer ended", Toast.LENGTH_SHORT).show();
-                //uploadMessageAndGetResponse(message);
-                //sharedPreferences.edit().putString("msgStatus", "true").apply();
-            }
-        }, 1000);
-
-    }
-
 
     private void fillArrayListWithData() {
+        //completeMessagesArrayList.add(new ChatMessage("5 minutes later", "middle"));
+        //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi", "user"));
+        //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi, how are you2", "bot"));
         Log.d(TAG, "fillArrayListWithData: started");
 
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi, how are you2", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi3", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi4", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi5", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi6", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi7", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi8", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi9", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi1", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi2", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi3", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi4", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi5", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi6", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi7", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi8", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi9", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi, how are you2", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi3", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi4", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi5", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi6", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi7", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi8", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi9", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi1", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi2", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi3", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi4", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi5", "bot"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi6", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi7", "user"));
-        chatFullList.add(new ChatMessage("fillArrayListWithData Hi8", "bot"));
-        chatFullList.add(new ChatMessage("Hello how are you? Hi9", "bot"));
-        chatFullList.add(new ChatMessage("Last Message", "user"));
-
-
-//        String str = "alice Hi";
-//        this.chatList.add(str);
-//        String str2 = "john Hi 2";
-//        this.chatList.add(str2);
-//        String str3 = "alice Hi, how are you?";
-//        this.chatList.add(str3);
-//        String str4 = "john Hi, how are you 2?";
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add(str);
-//        this.chatList.add(str2);
-//        this.chatList.add(str3);
-//        this.chatList.add(str4);
-//        this.chatList.add("middle");
+        completeMessagesArrayList.add(new ChatMessage("Hi!", "user"));
+        completeMessagesArrayList.add(new ChatMessage("Hey", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("How are you?", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("My lawyer says I don’t have to answer that question \uD83E\uDD2D", "user"));
+        completeMessagesArrayList.add(new ChatMessage("Lawyer??", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("Which lawyer \uD83E\uDD14\uD83E\uDD14", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("Do you really care?", "user"));
+        completeMessagesArrayList.add(new ChatMessage("No \uD83D\uDE02 ", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("Go to hell ", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("No one cares for me \uD83D\uDE2D\uD83D\uDE2D", "user"));
+        completeMessagesArrayList.add(new ChatMessage("Bro, take it easy!", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("Guess what!", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("You're single & I'm single too", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("You know what that means?", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("What?", "user"));
+        completeMessagesArrayList.add(new ChatMessage("We're both ugly! \uD83D\uDE02", "bot"));
+        completeMessagesArrayList.add(new ChatMessage("Stop it \uD83D\uDE02", "user"));
 
     }
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: ");
 
-        nmbrChatRecyclerView = findViewById(R.id.recyclerView_conversation);
+        conversationRecyclerView = findViewById(R.id.recyclerView_conversation);
         adapter = new RecyclerViewAdapterMessages();
 
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //linearLayoutManager.setStackFromEnd(true);
 
-        nmbrChatRecyclerView.setLayoutManager(linearLayoutManager);
-        nmbrChatRecyclerView.setHasFixedSize(true);
-        nmbrChatRecyclerView.setNestedScrollingEnabled(false);
+        conversationRecyclerView.setLayoutManager(linearLayoutManager);
+        conversationRecyclerView.setHasFixedSize(true);
+        conversationRecyclerView.setNestedScrollingEnabled(false);
 
-        nmbrChatRecyclerView.setAdapter(adapter);
+        conversationRecyclerView.setAdapter(adapter);
 
         scrollRecyclerViewToEnd();
 
-        //recyclerViewConversation.addOnScrollListener(new RecyclerView.OnScrollListener() {
-        //            @Override
-        //            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-        //                super.onScrolled(recyclerView, dx, dy);
-        //
-        //                if (!ConversationActivity.this.recyclerViewConversation.canScrollVertically(1)) {
-        //
-        //                    Log.d(TAG, "onScrolled: onScrolledToBottom");
-        //
-        //                    scrollBtn.setVisibility(View.GONE);
-        //                }
-        //
-        //                if (dy < 0) {
-        //
-        //                    Log.d(TAG, "onScrolled: onScrollUp");
-        //
-        //                    scrollBtn.setVisibility(View.VISIBLE);
-        //
-        //                }
-        //            }
-        //        });
-
     }
 
-    private void scrollRecyclerViewToEnd(){
-        nmbrChatRecyclerView.scrollToPosition(nmbrChatRecyclerView.getAdapter().getItemCount() - 1);
+    private void scrollRecyclerViewToEnd() {
+        conversationRecyclerView.scrollToPosition(conversationRecyclerView.getAdapter().getItemCount() - 1);
     }
 
+    private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
+            <RecyclerViewAdapterMessages.ViewHolderMessages> {
+
+        @NonNull
+        @Override
+        public ViewHolderMessages onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+            Log.d(TAG, "onCreateViewHolder: ");
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msgs, parent, false);
+            return new ViewHolderMessages(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
+            Log.d(TAG, "onBindViewHolder: " + position);
+
+            if (currentMessagesArrayList.get(position).getMsgUser().equals("user")) {
+
+                holder.rightText.setText(currentMessagesArrayList.get(position).getMsgText());
+
+                holder.rightText.setVisibility(View.VISIBLE);
+                holder.leftText.setVisibility(View.GONE);
+
+            } else {
+
+                holder.leftText.setText(currentMessagesArrayList.get(position).getMsgText());
+
+                holder.rightText.setVisibility(View.GONE);
+                holder.leftText.setVisibility(View.VISIBLE);
+            }
+
+        }
+
+        @Override
+        public int getItemCount() {
+            if (currentMessagesArrayList == null)
+                return 0;
+            return currentMessagesArrayList.size();
+        }
+
+        public class ViewHolderMessages extends RecyclerView.ViewHolder {
+
+            TextView leftText, rightText;
+            //LinearLayout rightTextLayout;
+
+            public ViewHolderMessages(@NonNull View v) {
+                super(v);
+
+                leftText = v.findViewById(R.id.leftText);
+                rightText = v.findViewById(R.id.rightText);
+                //  rightTextLayout = v.findViewById(R.id.rightTextLayout);
+            }
+        }
+
+        public void addMessage(ChatMessage c) {
+
+            currentMessagesArrayList.add(c);
+
+            notifyItemInserted(currentMessagesArrayList.size() - 1);
+
+            scrollRecyclerViewToEnd();
+
+        }
+
+    }
     private class ChatMessage {
 
         private String msgText;
@@ -309,225 +224,9 @@ public class ConversationActivity extends AppCompatActivity {
             return msgText;
         }
 
-        public void setMsgText(String msgText) {
-            this.msgText = msgText;
-        }
-
         public String getMsgUser() {
             return msgUser;
         }
 
-        public void setMsgUser(String msgUser) {
-            this.msgUser = msgUser;
-        }
     }
-
-
-    private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
-            <RecyclerViewAdapterMessages.ViewHolderMessages> {
-
-        @NonNull
-        @Override
-        public ViewHolderMessages onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-            Log.d(TAG, "onCreateViewHolder: ");
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msgs, parent, false);
-            return new ViewHolderMessages(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
-            Log.d(TAG, "onBindViewHolder: " + position);
-
-            //holder.receivedImage.setImageDrawable(mContext.getResources().getDrawable(R.drawable.boy));
-
-//            if (msgUser.get(position).equals("user")) {
-            if (messagesArrayList.get(position).getMsgUser().equals("user")) {
-
-                holder.rightText.setText(messagesArrayList.get(position).getMsgText());
-
-                holder.rightText.setVisibility(View.VISIBLE);
-                holder.leftText.setVisibility(View.GONE);
-
-            } else {
-
-                holder.leftText.setText(messagesArrayList.get(position).getMsgText());
-
-                holder.rightText.setVisibility(View.GONE);
-                holder.leftText.setVisibility(View.VISIBLE);
-            }
-
-        }
-
-        @Override
-        public int getItemCount() {
-            if (messagesArrayList == null)
-                return 0;
-            return messagesArrayList.size();
-        }
-
-        public class ViewHolderMessages extends RecyclerView.ViewHolder {
-
-            TextView leftText, rightText;
-            //LinearLayout rightTextLayout;
-
-            public ViewHolderMessages(@NonNull View v) {
-                super(v);
-
-                leftText = v.findViewById(R.id.leftText);
-                rightText = v.findViewById(R.id.rightText);
-              //  rightTextLayout = v.findViewById(R.id.rightTextLayout);
-            }
-        }
-
-        public void addMessage(ChatMessage c) {
-
-            messagesArrayList.add(c);
-
-            notifyItemInserted(messagesArrayList.size() - 1);
-
-            scrollRecyclerViewToEnd();
-
-        }
-
-    }
-
-//    private class ChatsRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
-//        private ChatsRecyclerViewAdapter() {
-//        }
-//
-//        public int getItemViewType(int position) {
-//
-//            int viewType = 1;
-//
-//            if (chatList == null || chatList.get(position) == null) {
-//                Log.d(TAG, "getItemViewType: NULL");
-//
-//            }
-//            if ((chatList.get(position)).equals("alice")) {
-//                Log.d(TAG, "getItemViewType: alice");
-//                //viewType = 1;
-//
-//            }
-//            if ((chatList.get(position)).equals("john")) {
-//
-//                viewType = 2;
-//
-//            }
-//            if ((chatList.get(position)).equals("middle")) {
-//
-//                viewType = 3;
-//
-//            }
-//            return viewType;
-//        }
-//
-//        public int getItemCount() {
-//            return chatList.size();
-//        }
-//
-//        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//            Log.d(TAG, "onCreateViewHolder: started");
-//
-//            ViewHolder viewHolder = new ViewHolderMiddle(parent);
-//
-//            if (viewType == 1) {
-//
-//                viewHolder = new ViewHolderRight(
-//                        LayoutInflater.from(parent.getContext())
-//                                .inflate(R.layout.layout_msg_right, parent, false));
-//
-//            }
-//            if (viewType == 2) {
-//
-//                viewHolder = new ViewHolderLeft(
-//                        LayoutInflater.from(parent.getContext())
-//                                .inflate(R.layout.layout_msg_left, parent, false));
-//
-//            }
-//            if (viewType == 3) {
-//                Log.d(TAG, "onCreateViewHolder: viewType 2 (Middle)");
-//                viewHolder = new ViewHolderMiddle(
-//                        LayoutInflater.from(parent.getContext())
-//                                .inflate(R.layout.layout_msg_left, parent, false));
-//            }
-////            } else if (viewType == 4){
-////                Log.d(TAG, "onCreateViewHolder: NULL");
-////
-////            }
-//
-//            return viewHolder;
-//        }
-//
-//        public void onBindViewHolder(ViewHolder holder, int position) {
-//            int itemViewType = holder.getItemViewType();
-//
-//            if (itemViewType == 1) {
-//                Log.d(TAG, "onBindViewHolder: itemViewType " + 1);
-//
-//                ViewHolderRight holderRight = (ViewHolderRight) holder;
-//                holderRight.rightTextView.setText((chatList.get(position)).replace("alice", "").trim());
-//
-//            } else if (itemViewType == 2) {
-//                Log.d(TAG, "onBindViewHolder: itemViewType " + 2);
-//
-//                ViewHolderLeft holderLeft = (ViewHolderLeft) holder;
-//                holderLeft.leftTextView.setText((chatList.get(position)).replace("john", "").trim());
-//
-//            } else if (itemViewType == 3) {
-//                Log.d(TAG, "onBindViewHolder: itemViewType " + 3);
-//
-//                final RelativeLayout layout = findViewById(R.id.middle_layout_conversation);
-//                layout.setVisibility(View.VISIBLE);
-////                layout.animate().alpha(1.0f).setDuration(500).setListener(new AnimatorListener() {
-////                    public void onAnimationStart(Animator animation) {
-////                    }
-////
-////                    public void onAnimationEnd(Animator animation) {
-////                        Log.d(TAG, "onAnimationEnd: started");
-////                        layout.animate().alpha(0.0f).setDuration(500);
-////                    }
-////
-////                    public void onAnimationCancel(Animator animation) {
-////                    }
-////
-////                    public void onAnimationRepeat(Animator animation) {
-////                    }
-////                });
-//            } else {
-//                Log.d(TAG, "onBindViewHolder: Showing No Data Dialog");
-//
-//                Utils utils = new Utils();
-//                utils.showMessage(ConversationActivity.this, "Alert!", "Sorry no Data Found!");
-//
-//            }
-//
-//            Log.d(TAG, "onBindViewHolder: running at " + position);
-//        }
-//
-//        class ViewHolderLeft extends ViewHolder {
-//            TextView leftTextView;
-//
-//            public ViewHolderLeft(View v) {
-//                super(v);
-//                this.leftTextView = (TextView) v.findViewById(R.id.leftText);
-//            }
-//        }
-//
-//        class ViewHolderMiddle extends ViewHolder {
-//            public ViewHolderMiddle(View v) {
-//                super(v);
-//            }
-//        }
-//
-//        class ViewHolderRight extends ViewHolder {
-//            TextView rightTextView;
-//
-//            public ViewHolderRight(View v) {
-//                super(v);
-//                this.rightTextView = (TextView) v.findViewById(R.id.rightText);
-//            }
-//        }
-//
-//    }
-
 }
