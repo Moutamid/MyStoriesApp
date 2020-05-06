@@ -102,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started");
 
-        startActivity(new Intent(MainActivity.this, ConversationActivity.class));
-
-        //data();
+        data();
     }
 
     private void data() {

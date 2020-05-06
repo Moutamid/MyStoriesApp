@@ -42,9 +42,9 @@ public class FragmentRegistrationOnBoard extends Fragment {
                 FragmentRegistrationOnBoard.this.maleBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.white));
                 FragmentRegistrationOnBoard.this.femaleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
                 FragmentRegistrationOnBoard.this.alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
             }
         });
         this.femaleBtn.setOnClickListener(new OnClickListener() {
@@ -55,9 +55,9 @@ public class FragmentRegistrationOnBoard extends Fragment {
                 FragmentRegistrationOnBoard.this.femaleBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.white));
                 FragmentRegistrationOnBoard.this.maleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
                 FragmentRegistrationOnBoard.this.alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
             }
         });
         this.alienBtn.setOnClickListener(new OnClickListener() {
@@ -68,9 +68,9 @@ public class FragmentRegistrationOnBoard extends Fragment {
                 FragmentRegistrationOnBoard.this.alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.white));
                 FragmentRegistrationOnBoard.this.femaleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
                 FragmentRegistrationOnBoard.this.maleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.black));
+                FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
             }
         });
         this.nameEt.addTextChangedListener(new TextWatcher() {
