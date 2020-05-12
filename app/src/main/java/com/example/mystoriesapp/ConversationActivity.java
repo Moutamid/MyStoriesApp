@@ -95,27 +95,12 @@ public class ConversationActivity extends AppCompatActivity {
 
     private void fillArrayListWithData() {
         //completeMessagesArrayList.add(new ChatMessage("5 minutes later", "middle"));
-        //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi", "user"));
+        //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi", "me"));
         //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi, how are you2", "bot"));
         Log.d(TAG, "fillArrayListWithData: started");
 
-        completeMessagesArrayList.add(new ChatMessage("Hi!", "user"));
-        completeMessagesArrayList.add(new ChatMessage("Hey", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("How are you?", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("My lawyer says I don’t have to answer that question \uD83E\uDD2D", "user"));
-        completeMessagesArrayList.add(new ChatMessage("Lawyer??", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("Which lawyer \uD83E\uDD14\uD83E\uDD14", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("Do you really care?", "user"));
-        completeMessagesArrayList.add(new ChatMessage("No \uD83D\uDE02 ", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("Go to hell ", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("No one cares for me \uD83D\uDE2D\uD83D\uDE2D", "user"));
-        completeMessagesArrayList.add(new ChatMessage("Bro, take it easy!", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("Guess what!", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("You're single & I'm single too", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("You know what that means?", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("What?", "user"));
-        completeMessagesArrayList.add(new ChatMessage("We're both ugly! \uD83D\uDE02", "bot"));
-        completeMessagesArrayList.add(new ChatMessage("Stop it \uD83D\uDE02", "user"));
+        Stories stories = new Stories();
+        completeMessagesArrayList = stories.John();
 
     }
 
@@ -157,11 +142,10 @@ public class ConversationActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
             Log.d(TAG, "onBindViewHolder: " + position);
 
-            if (currentMessagesArrayList.get(position).getMsgUser().equals("user")) {
+            if (currentMessagesArrayList.get(position).getMsgUser().equals("me")) {
 
                 holder.rightText.setText(currentMessagesArrayList.get(position).getMsgText());
 
-                holder.rightText.setVisibility(View.VISIBLE);
                 holder.leftText.setVisibility(View.GONE);
 
             } else {
@@ -169,7 +153,6 @@ public class ConversationActivity extends AppCompatActivity {
                 holder.leftText.setText(currentMessagesArrayList.get(position).getMsgText());
 
                 holder.rightText.setVisibility(View.GONE);
-                holder.leftText.setVisibility(View.VISIBLE);
             }
 
         }
@@ -206,27 +189,5 @@ public class ConversationActivity extends AppCompatActivity {
         }
 
     }
-    private class ChatMessage {
 
-        private String msgText;
-        private String msgUser;
-
-        public ChatMessage(String msgText, String msgUser) {
-            this.msgText = msgText;
-            this.msgUser = msgUser;
-
-        }
-
-        public ChatMessage() {
-        }
-
-        public String getMsgText() {
-            return msgText;
-        }
-
-        public String getMsgUser() {
-            return msgUser;
-        }
-
-    }
 }
