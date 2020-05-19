@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/parent_layout_chats"
     android:background="@color/white"
     android:padding="10dp">
 
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
+            android:id="@+id/chat_name_layout_chats"
             android:text="Lisa"
             android:textColor="@color/black"
             android:textSize="20sp"

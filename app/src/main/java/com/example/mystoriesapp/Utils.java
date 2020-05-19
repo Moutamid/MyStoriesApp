@@ -3,7 +3,9 @@ package com.example.mystoriesapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog.Builder;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -36,6 +38,18 @@ public class Utils {
         SharedPreferences sharedPreferences2 = context1.getSharedPreferences(PACKAGE_NAME, 0);
         this.sharedPreferences = sharedPreferences2;
         return sharedPreferences2.getBoolean(name, false);
+    }
+
+    public void storeInteger(Context context1, String name, int value) {
+        SharedPreferences sharedPreferences2 = context1.getSharedPreferences(PACKAGE_NAME, 0);
+        this.sharedPreferences = sharedPreferences2;
+        sharedPreferences2.edit().putInt(name, value).apply();
+    }
+
+    public int getStoredInteger(Context context1, String name) {
+        SharedPreferences sharedPreferences2 = context1.getSharedPreferences(PACKAGE_NAME, 0);
+        this.sharedPreferences = sharedPreferences2;
+        return sharedPreferences2.getInt(name, 0);
     }
 
     public Integer getRandomNmbr(int length) {

@@ -1,16 +1,11 @@
 package com.example.mystoriesapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
-import android.widget.Scroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,7 +14,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,49 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean isGenderSelected = false;
     private ViewPagerFragmentAdapter onBoardAdapter;
 
-    private NonSwipableViewPager onBoardViewPager;
+    private ViewPager onBoardViewPager;
 
     private Utils utils = new Utils();
-
-    public static class NonSwipableViewPager extends ViewPager {
-
-        public class MyScroller extends Scroller {
-            public MyScroller(Context context) {
-                super(context, new DecelerateInterpolator());
-            }
-
-            public void startScroll(int startX, int startY, int dx, int dy, int duration) {
-                super.startScroll(startX, startY, dx, dy, 350);
-            }
-        }
-
-        public NonSwipableViewPager(Context context) {
-            super(context);
-        }
-
-        public NonSwipableViewPager(Context context, AttributeSet attrs) {
-            super(context, attrs);
-        }
-
-        public boolean onInterceptTouchEvent(MotionEvent ev) {
-            return false;
-        }
-
-        public boolean onTouchEvent(MotionEvent ev) {
-            return false;
-        }
-
-        public void setMyScroller() {
-            Log.d(MainActivity.TAG, "setMyScroller: ");
-            try {
-                Field scroller = ViewPager.class.getDeclaredField("mScroller");
-                scroller.setAccessible(true);
-                scroller.set(this, new MyScroller(getContext()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     private static class ViewPagerFragmentAdapter extends FragmentStatePagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList();
@@ -102,18 +56,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started");
 
+        startActivity(new Intent(MainActivity.this, StoriesListActivity.class));
+
         data();
     }
 
     private void data() {
-        this.onBoardViewPager = (NonSwipableViewPager) findViewById(R.id.viewPagerMainActivity);
+        this.onBoardViewPager =  findViewById(R.id.viewPagerMainActivity);
         this.button = (Button) findViewById(R.id.get_started_btn_fragment_welcome);
         ViewPagerFragmentAdapter viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
         this.onBoardAdapter = viewPagerFragmentAdapter;
         viewPagerFragmentAdapter.addFragment(new FragmentWelcomeOnBoard());
         this.onBoardAdapter.addFragment(new FragmentRegistrationOnBoard());
         this.onBoardViewPager.setOffscreenPageLimit(2);
-        this.onBoardViewPager.setMyScroller();
+
         this.onBoardViewPager.setAdapter(this.onBoardAdapter);
         this.onBoardViewPager.addOnPageChangeListener(new OnPageChangeListener() {
             public void onPageScrolled(int position, float v, int i1) {
@@ -149,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     sb.append("\n");
                     sb.append(h);
                     access$200.showShortToast(mainActivity, sb.toString());
-                    MainActivity.this.startActivity(new Intent(MainActivity.this, ChatListActivity.class));
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, HomeActivity.class));
                     return;
                 }
                 MainActivity.this.utils.showShortToast(MainActivity.this, "Gender not selected");

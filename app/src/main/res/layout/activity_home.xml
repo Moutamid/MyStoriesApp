@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/image"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/image"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:gravity="start"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hey there, "/>
+
+                <TextView
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold|italic"
+                    android:textColor="@color/darkSkyBlue"
+                    android:ellipsize="end"
+                    android:id="@+id/user_name_textview_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moutamid!"
+                    android:maxLines="1"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/wewe"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/image"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toLeftOf="@+id/qwqw"
+                    android:layout_toRightOf="@+id/wewe"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:ellipsize="end"
+                        android:id="@+id/last_chat_textview_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lisa"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        android:textColor="@color/darkerGrey"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Begin where you left of"
+                        android:maxLines="1"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/qwqw"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/image"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <LinearLayout
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="23sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/darkSkyBlue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stories "/>
+
+                    <TextView
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="for you to choose"
+                        android:maxLines="1"/>
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <LinearLayout
+                        android:gravity="start"
+                        android:layout_gravity="start"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/funny_btn_home"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:text="Funny"/>
+
+                        <Button
+                            android:textColor="@color/orange"
+                            android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Thriller"
+                            android:id="@+id/thriller_btn_home"
+                            android:layout_marginStart="5dp" />
+
+                        <Button
+                            android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/orange"
+                            android:layout_marginLeft="5dp"
+                            android:text="Suspense"
+                            android:id="@+id/suspense_btn_home"
+                            android:layout_marginStart="5dp" />
+
+                        <Button
+                            android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/orange"
+                            android:text="Alien"
+                            android:id="@+id/alien_btn_home"
+                            android:layout_marginStart="5dp" />
+
+                        <Button
+                            android:id="@+id/showAllStoriesBtnChatList"
+                            android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/orange"
+                            android:text="Show All"
+                            android:layout_marginStart="5dp" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+<!--margin = 10dp-->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:id="@+id/john_layout_home"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="John"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:id="@+id/alice_layout_home"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Alice"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/charlie_layout_home"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Charlie"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/carl_layout_home"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Carl"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:visibility="gone"
+                            android:id="@+id/kathy_layout_home"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Kathy"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/william_layout_home"
+                            android:layout_marginStart="10dp"
+                            android:visibility="gone"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="William"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"
+                            android:id="@+id/sam_layout_home"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Sam"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="150dp"
+                            android:visibility="gone"
+                            android:id="@+id/alex_layout_home"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="start"
+                                    android:src="@drawable/image" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="start"
+                                    android:maxLines="1"
+                                    android:text="Alex"
+                                    android:textColor="@color/white"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <LinearLayout
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="23sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/darkSkyBlue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="People "/>
+
+                    <TextView
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="in your chat"
+                        android:maxLines="1"/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/incomplete_chats_list_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -12,7 +12,7 @@
         <activity android:name="com.example.mystoriesapp.ConversationActivity"/>
         <activity android:name="com.example.mystoriesapp.UnlockStoriesActivity"/>
         <activity android:name="com.example.mystoriesapp.StoriesListActivity"/>
-        <activity android:name="com.example.mystoriesapp.ChatListActivity"/>
+        <activity android:name="com.example.mystoriesapp.HomeActivity"/>
         <activity android:name="com.example.mystoriesapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

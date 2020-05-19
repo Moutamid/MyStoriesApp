@@ -101,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:gravity="start"
-                        android:text="Active Now"
+                        android:text="Active now"
                         android:textColor="@color/greyishblue"
                         android:textSize="12sp" />
                 </LinearLayout>

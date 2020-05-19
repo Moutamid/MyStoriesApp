@@ -15,9 +15,8 @@
         android:text="Get started"
         android:textColor="@color/white" />
 
-    <view
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerMainActivity"
-        class="com.example.mystoriesapp.MainActivity$NonSwipableViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/get_started_btn_fragment_welcome" />

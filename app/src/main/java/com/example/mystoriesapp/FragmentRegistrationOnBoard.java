@@ -50,14 +50,14 @@ public class FragmentRegistrationOnBoard extends Fragment {
         this.femaleBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Log.d(FragmentRegistrationOnBoard.TAG, "onClick: femalebtn");
-                FragmentRegistrationOnBoard.this.utils.storeString(FragmentRegistrationOnBoard.this.getActivity(), FragmentRegistrationOnBoard.USER_GENDER, "female");
-                FragmentRegistrationOnBoard.this.utils.storeBoolean(FragmentRegistrationOnBoard.this.getActivity(), "isgenderselected", true);
-                FragmentRegistrationOnBoard.this.femaleBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.femaleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.white));
-                FragmentRegistrationOnBoard.this.maleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.maleBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
-                FragmentRegistrationOnBoard.this.alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
-                FragmentRegistrationOnBoard.this.alienBtn.setTextColor(FragmentRegistrationOnBoard.this.getResources().getColor(R.color.orange));
+                utils.storeString(FragmentRegistrationOnBoard.this.getActivity(), FragmentRegistrationOnBoard.USER_GENDER, "female");
+                utils.storeBoolean(FragmentRegistrationOnBoard.this.getActivity(), "isgenderselected", true);
+                femaleBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
+                femaleBtn.setTextColor(getResources().getColor(R.color.white));
+                maleBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
+                maleBtn.setTextColor(getResources().getColor(R.color.orange));
+                alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
+                alienBtn.setTextColor(getResources().getColor(R.color.orange));
             }
         });
         this.alienBtn.setOnClickListener(new OnClickListener() {
@@ -78,7 +78,7 @@ public class FragmentRegistrationOnBoard extends Fragment {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                FragmentRegistrationOnBoard.this.utils.storeString(FragmentRegistrationOnBoard.this.getActivity(), FragmentRegistrationOnBoard.USER_NAME, s.toString());
+                utils.storeString(getActivity(), USER_NAME, s.toString());
             }
 
             public void afterTextChanged(Editable s) {

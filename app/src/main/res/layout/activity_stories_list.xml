@@ -23,7 +23,6 @@
                 android:layout_height="55dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:onClick="btnClicked"
                 android:src="@drawable/image"
                 android:layout_alignParentStart="true" />
 
@@ -59,6 +58,8 @@
                     android:id="@+id/lisa_chat_item_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="StoryClickedMethod"
+                    android:tag="john"
                     android:background="@color/white"
                     android:padding="10dp">
 
@@ -92,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="John"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -112,6 +113,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="StoryClickedMethod"
+                    android:tag="alice"
                     android:background="@color/white"
                     android:padding="10dp">
 
@@ -145,7 +148,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Alice"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -173,6 +176,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    android:onClick="StoryClickedMethod"
+                    android:tag="charlie"
                     android:background="@color/white"
                     android:padding="10dp">
 
@@ -206,7 +212,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Charlie"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -226,6 +232,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="StoryClickedMethod"
+                    android:tag="carl"
                     android:background="@color/white"
                     android:padding="10dp">
 
@@ -259,7 +267,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Carl"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -287,8 +295,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+android:tag="kathy"
+android:background="@color/white"
+android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/wewe5"
@@ -320,7 +330,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Kathy"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -340,8 +350,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+android:tag="william"
+android:background="@color/white"
+android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/wewe6"
@@ -373,7 +385,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="William"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -393,7 +405,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thriller"
+                    android:text="Alien"
                     android:textColor="@color/black"
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -401,8 +413,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+android:tag="sam"
+android:background="@color/white"
+android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/wewe9"
@@ -434,7 +448,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Sam"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -454,8 +468,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+android:tag="alex"
+android:background="@color/white"
+android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/wewe0"
@@ -487,7 +503,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Lisa"
+                            android:text="Alex"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -503,128 +519,6 @@
                             android:textStyle="italic" />
                     </LinearLayout>
                 </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Other"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:id="@+id/wewe4"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw4"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw4"
-                        android:layout_toRightOf="@+id/wewe4"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Lisa"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:id="@+id/wewe3"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw3"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw3"
-                        android:layout_toRightOf="@+id/wewe3"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Lisa"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Other"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
@@ -636,22 +530,4 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/btn_stories_list_activity"
-        android:layout_width="250dp"
-        android:layout_height="65dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-5dp"
-        android:background="@drawable/bg_btn_stories_list_activity">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="START"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
 </RelativeLayout>
