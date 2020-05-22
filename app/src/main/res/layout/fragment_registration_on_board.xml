@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
+            android:id="@+id/name_edittext_layout_fragment_registration"
             android:layout_marginRight="20dp"
             android:layout_weight="0.7"
             android:background="@drawable/bg_edit_text_registration_on_board"
@@ -57,6 +58,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/genderLayout_fragment_registration"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

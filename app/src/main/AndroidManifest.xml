@@ -12,13 +12,15 @@
         <activity android:name="com.example.mystoriesapp.ConversationActivity"/>
         <activity android:name="com.example.mystoriesapp.UnlockStoriesActivity"/>
         <activity android:name="com.example.mystoriesapp.StoriesListActivity"/>
-        <activity android:name="com.example.mystoriesapp.HomeActivity"/>
-        <activity android:name="com.example.mystoriesapp.MainActivity">
+        <activity android:name="com.example.mystoriesapp.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.example.mystoriesapp.MainActivity">
+
         </activity>
     </application>
 

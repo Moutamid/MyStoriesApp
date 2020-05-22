@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -34,8 +35,23 @@ public class ConversationActivity extends AppCompatActivity {
     private RelativeLayout middleLayout;
     private Button nextBtn;
 
+    private ImageView backBtn;
+
     private ArrayList<ChatMessage> currentMessagesArrayList = new ArrayList<>();
     private ArrayList<ChatMessage> completeMessagesArrayList = new ArrayList<>();
+
+    @Override
+    public void onBackPressed() {
+
+        if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")){
+
+            Intent intent = new Intent(ConversationActivity.this, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            utils.storeBoolean(ConversationActivity.this, "first_convno", false);
+        }
+        else super.onBackPressed();
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +62,10 @@ public class ConversationActivity extends AppCompatActivity {
         middleLayout = findViewById(R.id.middle_layout_conversation);
         username = findViewById(R.id.user_name_conversation);
         onlinestatus = findViewById(R.id.online_status_text_conversation);
+        backBtn = findViewById(R.id.back_btn_conversation);
 
         nextBtn.setOnClickListener(nextBtnClickListener());
+        backBtn.setOnClickListener(backBtnClickListener());
 
         fillCompleteArrayListWithData();
 
@@ -59,16 +77,37 @@ public class ConversationActivity extends AppCompatActivity {
 
     }
 
+    private View.OnClickListener backBtnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")){
+
+                    Intent intent = new Intent(ConversationActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    finish();
+                    startActivity(intent);
+                    utils.storeBoolean(ConversationActivity.this, "first_convno", false);
+                }
+                else finish();
+            }
+        };
+    }
+
     private void showPreviousMsgs() {
 
-        counter = utils.getStoredInteger(ConversationActivity.this, chatName+"counter");
+        counter = utils.getStoredInteger(ConversationActivity.this, chatName + "counter");
         //currentMessagesArrayList.add(completeMessagesArrayList.get(counter));
+        Log.d(TAG, "showPreviousMsgs1: " + counter);
 
-        for (int i = 0; i <= counter; i++){
+        int i = 0;
+        do {
 
+            if (completeMessagesArrayList.get(i) != null)
             currentMessagesArrayList.add(completeMessagesArrayList.get(i));
+            i++;
 
-        }
+        } while (i <= counter);
 
     }
 
@@ -109,10 +148,12 @@ public class ConversationActivity extends AppCompatActivity {
                     onlinestatus.setText("Offline");
                     onlinestatus.setTextColor(getResources().getColor(R.color.red));
 
+                    counter--;
+
                     utils.storeString(ConversationActivity.this, chatName.toLowerCase(), "ended");
                 }
 
-                utils.storeInteger(ConversationActivity.this, chatName+"counter", counter);
+                utils.storeInteger(ConversationActivity.this, chatName + "counter", counter);
             }
         };
     }

@@ -68,5 +68,18 @@
             android:background="@drawable/bg_btn_main_activity"
             android:text="Unlock by watching a video"
             android:textColor="@color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/open_chat_btn"
+            android:visibility="gone"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_btn_main_activity"
+            android:text="Open chat"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -14,9 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="15dp"/>
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="15dp"/>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -26,13 +26,15 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:src="@drawable/image"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:src="@drawable/image"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 
@@ -67,6 +69,7 @@
                 android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
                 android:padding="15dp"
                 android:layout_width="match_parent"
+                android:id="@+id/last_chat_layout_home"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp">
 
@@ -230,6 +233,8 @@
                             android:layout_height="150dp"
                             android:id="@+id/john_layout_home"
                             android:layout_marginTop="10dp"
+                            android:tag="john"
+                            android:onClick="HomeStoryClickedMethod"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:padding="15dp">
 
@@ -264,6 +269,8 @@
                             android:layout_height="150dp"
                             android:id="@+id/alice_layout_home"
                             android:layout_marginTop="10dp"
+                            android:tag="alice"
+                            android:onClick="HomeStoryClickedMethod"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
@@ -300,9 +307,9 @@
                             android:layout_height="150dp"
                             android:layout_marginTop="10dp"
                             android:visibility="gone"
-                            android:layout_marginStart="10dp"
+                            android:onClick="HomeStoryClickedMethod"
+                            android:tag="charlie"
                             android:id="@+id/charlie_layout_home"
-                            android:layout_marginLeft="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:padding="15dp">
 
@@ -336,6 +343,8 @@
                             android:layout_width="140dp"
                             android:layout_height="150dp"
                             android:visibility="gone"
+                            android:tag="carl"
+                            android:onClick="HomeStoryClickedMethod"
                             android:layout_marginTop="10dp"
                             android:id="@+id/carl_layout_home"
                             android:layout_marginStart="10dp"
@@ -372,11 +381,11 @@
                         <RelativeLayout
                             android:layout_width="140dp"
                             android:visibility="gone"
+                            android:tag="kathy"
+                            android:onClick="HomeStoryClickedMethod"
                             android:id="@+id/kathy_layout_home"
                             android:layout_height="150dp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:padding="15dp">
 
@@ -413,6 +422,8 @@
                             android:id="@+id/william_layout_home"
                             android:layout_marginStart="10dp"
                             android:visibility="gone"
+                            android:tag="william"
+                            android:onClick="HomeStoryClickedMethod"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:padding="15dp">
@@ -448,9 +459,9 @@
                             android:layout_height="150dp"
                             android:layout_marginTop="10dp"
                             android:visibility="gone"
+                            android:tag="sam"
+                            android:onClick="HomeStoryClickedMethod"
                             android:id="@+id/sam_layout_home"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:padding="15dp">
 
@@ -484,6 +495,8 @@
                             android:layout_width="140dp"
                             android:layout_height="150dp"
                             android:visibility="gone"
+                            android:tag="alex"
+                            android:onClick="HomeStoryClickedMethod"
                             android:id="@+id/alex_layout_home"
                             android:layout_marginTop="10dp"
                             android:layout_marginStart="10dp"
@@ -528,6 +541,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/recent_chats_layout_home"
                 android:layout_marginTop="25dp">
 
                 <LinearLayout

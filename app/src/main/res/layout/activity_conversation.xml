@@ -47,7 +47,7 @@
                     android:layout_marginEnd="5dp" />
 
                 <LinearLayout
-                    android:id="@+id/back_btn_conversation"
+                    android:id="@+id/back_btn_layout_conversation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -61,6 +61,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:id="@+id/back_btn_conversation"
                         android:src="@drawable/image" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -80,11 +81,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_toRightOf="@+id/back_btn_conversation"
+                    android:layout_toRightOf="@+id/back_btn_layout_conversation"
                     android:gravity="start"
                     android:orientation="vertical"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/back_btn_conversation">
+                    android:layout_toEndOf="@+id/back_btn_layout_conversation">
 
                     <TextView
                         android:id="@+id/user_name_conversation"

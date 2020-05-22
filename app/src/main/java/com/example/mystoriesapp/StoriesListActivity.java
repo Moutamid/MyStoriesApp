@@ -17,6 +17,7 @@ public class StoriesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stories_list);
         Log.d(TAG, "onCreate: started");
 
+        new Utils().storeString(StoriesListActivity.this, "current_activity", "stories");
 
     }
 
@@ -62,6 +63,8 @@ public class StoriesListActivity extends AppCompatActivity {
                 break;
         }
 
+
+        new Utils().storeString(StoriesListActivity.this, "current_activity", "home");
         startActivity(intent);
     }
 }

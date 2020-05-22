@@ -39,6 +39,10 @@ public class Stories {
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
+
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Alice \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Alice \uD83D\uDE02", "bot"));
@@ -54,66 +58,84 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
 
         return msgs;
     }
 
     public ArrayList<ChatMessage> CarlSuspense(){
-        Log.d(TAG, "Charlie: returned");
+        Log.d(TAG, "Carl: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("I'm Carl \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Carl \uD83D\uDE02", "bot"));
 
         return msgs;
     }
 
     public ArrayList<ChatMessage> KathyThriller(){
-        Log.d(TAG, "Charlie: returned");
+        Log.d(TAG, "Kathy: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("I'm Kathy \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Kathy \uD83D\uDE02", "bot"));
 
         return msgs;
     }
 
     public ArrayList<ChatMessage> WilliamThriller(){
-        Log.d(TAG, "Charlie: returned");
+        Log.d(TAG, "William: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("I'm William \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm William \uD83D\uDE02", "bot"));
 
         return msgs;
     }
 
     public ArrayList<ChatMessage> SamOther(){
-        Log.d(TAG, "Charlie: returned");
+        Log.d(TAG, "Sam: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("I'm Sam \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Sam \uD83D\uDE02", "bot"));
 
         return msgs;
     }
 
     public ArrayList<ChatMessage> AlexOther(){
-        Log.d(TAG, "Charlie: returned");
+        Log.d(TAG, "Alex: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("I'm Alex \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hi!", "me"));
+        msgs.add(new ChatMessage("Hey", "bot"));
+        msgs.add(new ChatMessage("I'm Alex \uD83D\uDE02", "bot"));
 
         return msgs;
     }

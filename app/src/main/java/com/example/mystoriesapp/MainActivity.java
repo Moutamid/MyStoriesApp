@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -13,6 +16,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String USER_NAME = "username";
 
     private Button button;
-    private boolean isGenderSelected = false;
-    private ViewPagerFragmentAdapter onBoardAdapter;
 
     private ViewPager onBoardViewPager;
 
@@ -56,28 +60,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started");
 
-        startActivity(new Intent(MainActivity.this, StoriesListActivity.class));
-
         data();
+
+        utils.storeString(MainActivity.this, "current_activity", "main");
     }
 
     private void data() {
         this.onBoardViewPager =  findViewById(R.id.viewPagerMainActivity);
         this.button = (Button) findViewById(R.id.get_started_btn_fragment_welcome);
         ViewPagerFragmentAdapter viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
-        this.onBoardAdapter = viewPagerFragmentAdapter;
         viewPagerFragmentAdapter.addFragment(new FragmentWelcomeOnBoard());
-        this.onBoardAdapter.addFragment(new FragmentRegistrationOnBoard());
+        viewPagerFragmentAdapter.addFragment(new FragmentRegistrationOnBoard());
         this.onBoardViewPager.setOffscreenPageLimit(2);
 
-        this.onBoardViewPager.setAdapter(this.onBoardAdapter);
+        this.onBoardViewPager.setAdapter(viewPagerFragmentAdapter);
         this.onBoardViewPager.addOnPageChangeListener(new OnPageChangeListener() {
             public void onPageScrolled(int position, float v, int i1) {
                 Log.d(MainActivity.TAG, "onPageScrolled: ");
                 if (position == 0) {
-                    MainActivity.this.button.setText("GET STARTED");
+                     button.setText("GET STARTED");
                 } else if (position == 1) {
-                    MainActivity.this.button.setText("REGISTER");
+                     button.setText("REGISTER");
                 }
             }
 
@@ -91,24 +94,39 @@ public class MainActivity extends AppCompatActivity {
         this.button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Log.d(MainActivity.TAG, "onClick: btn");
-                if (MainActivity.this.onBoardViewPager.getCurrentItem() == 0) {
-                    MainActivity.this.onBoardViewPager.setCurrentItem(1);
+                if ( onBoardViewPager.getCurrentItem() == 0) {
+                     onBoardViewPager.setCurrentItem(1);
                     return;
                 }
-                String g = MainActivity.this.utils.getStoredString(MainActivity.this, MainActivity.USER_NAME);
-                String h = MainActivity.this.utils.getStoredString(MainActivity.this, MainActivity.USER_GENDER);
-                if (MainActivity.this.utils.getStoredBoolean(MainActivity.this, "isgenderselected")) {
-                    Utils access$200 = MainActivity.this.utils;
-                    MainActivity mainActivity = MainActivity.this;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(g);
-                    sb.append("\n");
-                    sb.append(h);
-                    access$200.showShortToast(mainActivity, sb.toString());
-                    MainActivity.this.startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
+                String username =  utils.getStoredString(MainActivity.this, MainActivity.USER_NAME);
+                String usergender =  utils.getStoredString(MainActivity.this, MainActivity.USER_GENDER);
+
+                if (username.equals("Error") || username.equals("") || username.isEmpty()){
+
+                    RelativeLayout layout = (RelativeLayout) findViewById(R.id.name_edittext_layout_fragment_registration);
+                    YoYo.with(Techniques.Shake).duration(700).playOn(layout);
+
+                    //Toast.makeText(MainActivity.this, "Please enter a name!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                MainActivity.this.utils.showShortToast(MainActivity.this, "Gender not selected");
+
+                if (!utils.getStoredBoolean(MainActivity.this, "isgenderselected")) {
+
+                    LinearLayout layout = (LinearLayout) findViewById(R.id.genderLayout_fragment_registration);
+                    YoYo.with(Techniques.Shake).duration(700).playOn(layout);
+
+                    //Toast.makeText(MainActivity.this, "Gender not selected", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                finish();
+                startActivity(new Intent(MainActivity.this, StoriesListActivity.class));
+
+                utils.storeBoolean(MainActivity.this, "first_convno", true);
+
+                Toast.makeText(MainActivity.this, username + " " + usergender, Toast.LENGTH_SHORT).show();
+
             }
         });
     }
