@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:paddingTop="15dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
     android:paddingStart="15dp"
-    android:paddingEnd="15dp">
+    android:paddingLeft="15dp"
+    android:paddingTop="15dp"
+    android:paddingEnd="15dp"
+    android:paddingRight="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,10 +21,10 @@
             <ImageView
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/image"
-                android:layout_alignParentStart="true" />
+                android:src="@drawable/image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,10 +58,10 @@
                     android:id="@+id/lisa_chat_item_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="StoryClickedMethod"
-                    android:tag="john"
                     android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+                    android:padding="10dp"
+                    android:tag="john">
 
                     <ImageView
                         android:id="@+id/wewe1"
@@ -113,10 +113,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="StoryClickedMethod"
-                    android:tag="alice"
                     android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+                    android:padding="10dp"
+                    android:tag="alice">
 
                     <ImageView
                         android:id="@+id/wewe2"
@@ -177,10 +177,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:onClick="StoryClickedMethod"
-                    android:tag="charlie"
                     android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+                    android:padding="10dp"
+                    android:tag="charlie">
 
                     <ImageView
                         android:id="@+id/wewe8"
@@ -232,10 +232,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="StoryClickedMethod"
-                    android:tag="carl"
                     android:background="@color/white"
-                    android:padding="10dp">
+                    android:onClick="StoryClickedMethod"
+                    android:padding="10dp"
+                    android:tag="carl">
 
                     <ImageView
                         android:id="@+id/wewe7"
@@ -295,10 +295,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:onClick="StoryClickedMethod"
-android:tag="kathy"
-android:background="@color/white"
-android:padding="10dp">
+                    android:padding="10dp"
+                    android:tag="kathy">
 
                     <ImageView
                         android:id="@+id/wewe5"
@@ -350,10 +350,10 @@ android:padding="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:onClick="StoryClickedMethod"
-android:tag="william"
-android:background="@color/white"
-android:padding="10dp">
+                    android:padding="10dp"
+                    android:tag="william">
 
                     <ImageView
                         android:id="@+id/wewe6"
@@ -413,10 +413,10 @@ android:padding="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:onClick="StoryClickedMethod"
-android:tag="sam"
-android:background="@color/white"
-android:padding="10dp">
+                    android:padding="10dp"
+                    android:tag="sam">
 
                     <ImageView
                         android:id="@+id/wewe9"
@@ -468,10 +468,10 @@ android:padding="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:onClick="StoryClickedMethod"
-android:tag="alex"
-android:background="@color/white"
-android:padding="10dp">
+                    android:padding="10dp"
+                    android:tag="alex">
 
                     <ImageView
                         android:id="@+id/wewe0"

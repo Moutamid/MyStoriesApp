@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Stories {
     private static final String TAG = "Stories";
-    
-    public ArrayList<ChatMessage> JohnFunny(){
+
+    public ArrayList<ChatMessage> JohnFunny() {
         Log.d(TAG, "john: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -30,11 +30,11 @@ public class Stories {
         msgs.add(new ChatMessage("What?", "me"));
         msgs.add(new ChatMessage("We're both ugly! \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("Stop it \uD83D\uDE02", "me"));
-        
+
         return msgs;
     }
 
-    public ArrayList<ChatMessage> AliceFunny(){
+    public ArrayList<ChatMessage> AliceFunny() {
         Log.d(TAG, "Alice: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -50,7 +50,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> CharlieSuspense(){
+    public ArrayList<ChatMessage> CharlieSuspense() {
         Log.d(TAG, "Charlie: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -65,7 +65,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> CarlSuspense(){
+    public ArrayList<ChatMessage> CarlSuspense() {
         Log.d(TAG, "Carl: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -80,7 +80,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> KathyThriller(){
+    public ArrayList<ChatMessage> KathyThriller() {
         Log.d(TAG, "Kathy: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -95,7 +95,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> WilliamThriller(){
+    public ArrayList<ChatMessage> WilliamThriller() {
         Log.d(TAG, "William: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -110,7 +110,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> SamOther(){
+    public ArrayList<ChatMessage> SamOther() {
         Log.d(TAG, "Sam: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -125,7 +125,7 @@ public class Stories {
         return msgs;
     }
 
-    public ArrayList<ChatMessage> AlexOther(){
+    public ArrayList<ChatMessage> AlexOther() {
         Log.d(TAG, "Alex: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
@@ -139,5 +139,5 @@ public class Stories {
 
         return msgs;
     }
-    
+
 }

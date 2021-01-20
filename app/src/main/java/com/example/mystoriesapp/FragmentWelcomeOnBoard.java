@@ -16,7 +16,7 @@ public class FragmentWelcomeOnBoard extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: started");
-        View view =  inflater.inflate(R.layout.fragment_welcome_on_board, container, false);
+        View view = inflater.inflate(R.layout.fragment_welcome_on_board, container, false);
 
         YoYo.with(Techniques.BounceInLeft)
                 .duration(700)

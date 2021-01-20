@@ -42,15 +42,16 @@ public class ConversationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Log.d(TAG, "onBackPressed: ");
 
-        if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")){
+        if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")) {
+            Log.d(TAG, "onBackPressed: if (utils.getStoredBoolean(ConversationActivity.this, \"first_convno\")){");
 
             Intent intent = new Intent(ConversationActivity.this, HomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             utils.storeBoolean(ConversationActivity.this, "first_convno", false);
-        }
-        else super.onBackPressed();
+        } else super.onBackPressed();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +59,7 @@ public class ConversationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_conversation);
         Log.d(TAG, "onCreate: started");
 
-        nextBtn = findViewById(R.id.nxt_btn_conversation_activity);
-        middleLayout = findViewById(R.id.middle_layout_conversation);
-        username = findViewById(R.id.user_name_conversation);
-        onlinestatus = findViewById(R.id.online_status_text_conversation);
-        backBtn = findViewById(R.id.back_btn_conversation);
-
-        nextBtn.setOnClickListener(nextBtnClickListener());
-        backBtn.setOnClickListener(backBtnClickListener());
+        initViews();
 
         fillCompleteArrayListWithData();
 
@@ -77,24 +71,37 @@ public class ConversationActivity extends AppCompatActivity {
 
     }
 
+    private void initViews() {
+        Log.d(TAG, "initViews: ");
+        nextBtn = findViewById(R.id.nxt_btn_conversation_activity);
+        middleLayout = findViewById(R.id.middle_layout_conversation);
+        username = findViewById(R.id.user_name_conversation);
+        onlinestatus = findViewById(R.id.online_status_text_conversation);
+        backBtn = findViewById(R.id.back_btn_conversation);
+
+        nextBtn.setOnClickListener(nextBtnClickListener());
+        backBtn.setOnClickListener(backBtnClickListener());
+    }
+
     private View.OnClickListener backBtnClickListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")){
+                Log.d(TAG, "onClick: backBtnClickListener");
+                if (utils.getStoredBoolean(ConversationActivity.this, "first_convno")) {
 
                     Intent intent = new Intent(ConversationActivity.this, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     finish();
                     startActivity(intent);
                     utils.storeBoolean(ConversationActivity.this, "first_convno", false);
-                }
-                else finish();
+                } else finish();
             }
         };
     }
 
     private void showPreviousMsgs() {
+        Log.d(TAG, "showPreviousMsgs: ");
 
         counter = utils.getStoredInteger(ConversationActivity.this, chatName + "counter");
         //currentMessagesArrayList.add(completeMessagesArrayList.get(counter));
@@ -104,7 +111,7 @@ public class ConversationActivity extends AppCompatActivity {
         do {
 
             if (completeMessagesArrayList.get(i) != null)
-            currentMessagesArrayList.add(completeMessagesArrayList.get(i));
+                currentMessagesArrayList.add(completeMessagesArrayList.get(i));
             i++;
 
         } while (i <= counter);
@@ -227,6 +234,7 @@ public class ConversationActivity extends AppCompatActivity {
         }
 
         if (intent.hasExtra("trial")) {
+            Log.d(TAG, "fillCompleteArrayListWithData: if (intent.hasExtra(\"trial\")) {");
 
             isTrial = intent.getBooleanExtra("trial", true);
 
@@ -253,6 +261,7 @@ public class ConversationActivity extends AppCompatActivity {
     }
 
     private void scrollRecyclerViewToEnd() {
+        Log.d(TAG, "scrollRecyclerViewToEnd: ");
         conversationRecyclerView.scrollToPosition(conversationRecyclerView.getAdapter().getItemCount() - 1);
     }
 
@@ -308,6 +317,7 @@ public class ConversationActivity extends AppCompatActivity {
         }
 
         public void addMessage(ChatMessage c) {
+            Log.d(TAG, "addMessage: ");
 
             currentMessagesArrayList.add(c);
 

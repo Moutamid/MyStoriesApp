@@ -27,10 +27,10 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/textView_intro_unlock_story"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:id="@+id/textView_intro_unlock_story"
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
@@ -59,10 +59,10 @@
             android:textColor="@color/white" />
 
         <Button
+            android:id="@+id/unlock_chat_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:id="@+id/unlock_chat_btn"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bg_btn_main_activity"
@@ -70,16 +70,16 @@
             android:textColor="@color/white" />
 
         <Button
+            android:id="@+id/open_chat_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:id="@+id/open_chat_btn"
-            android:visibility="gone"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bg_btn_main_activity"
             android:text="Open chat"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:visibility="gone" />
 
     </LinearLayout>
 </RelativeLayout>

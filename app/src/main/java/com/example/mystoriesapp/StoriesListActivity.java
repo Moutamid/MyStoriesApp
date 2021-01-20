@@ -21,7 +21,7 @@ public class StoriesListActivity extends AppCompatActivity {
 
     }
 
-    public void StoryClickedMethod(View v){
+    public void StoryClickedMethod(View v) {
         Log.d(TAG, "StoryClickedMethod: started");
 
         RelativeLayout layout = (RelativeLayout) v;
@@ -29,7 +29,7 @@ public class StoriesListActivity extends AppCompatActivity {
 
         Intent intent = new Intent(StoriesListActivity.this, UnlockStoriesActivity.class);
 
-        switch (tag){
+        switch (tag) {
             case "john":
                 intent.putExtra("chat_name", "John");
                 break;

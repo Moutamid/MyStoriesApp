@@ -26,6 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     private static final String USER_GENDER = "user_gender";
     private static final String USER_NAME = "username";
 
@@ -66,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void data() {
-        this.onBoardViewPager =  findViewById(R.id.viewPagerMainActivity);
+        Log.d(TAG, "data: ");
+
+        this.onBoardViewPager = findViewById(R.id.viewPagerMainActivity);
         this.button = (Button) findViewById(R.id.get_started_btn_fragment_welcome);
         ViewPagerFragmentAdapter viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
         viewPagerFragmentAdapter.addFragment(new FragmentWelcomeOnBoard());
@@ -78,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrolled(int position, float v, int i1) {
                 Log.d(MainActivity.TAG, "onPageScrolled: ");
                 if (position == 0) {
-                     button.setText("GET STARTED");
+                    button.setText("GET STARTED");
                 } else if (position == 1) {
-                     button.setText("REGISTER");
+                    button.setText("REGISTER");
                 }
             }
 
@@ -94,15 +97,15 @@ public class MainActivity extends AppCompatActivity {
         this.button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Log.d(MainActivity.TAG, "onClick: btn");
-                if ( onBoardViewPager.getCurrentItem() == 0) {
-                     onBoardViewPager.setCurrentItem(1);
+                if (onBoardViewPager.getCurrentItem() == 0) {
+                    onBoardViewPager.setCurrentItem(1);
                     return;
                 }
 
-                String username =  utils.getStoredString(MainActivity.this, MainActivity.USER_NAME);
-                String usergender =  utils.getStoredString(MainActivity.this, MainActivity.USER_GENDER);
+                String username = utils.getStoredString(MainActivity.this, MainActivity.USER_NAME);
+                String usergender = utils.getStoredString(MainActivity.this, MainActivity.USER_GENDER);
 
-                if (username.equals("Error") || username.equals("") || username.isEmpty()){
+                if (username.equals("Error") || username.equals("") || username.isEmpty()) {
 
                     RelativeLayout layout = (RelativeLayout) findViewById(R.id.name_edittext_layout_fragment_registration);
                     YoYo.with(Techniques.Shake).duration(700).playOn(layout);

@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentRegistrationOnBoard extends Fragment {
     private static final String TAG = "FragmentRegistrationOnB";
+
     private static final String USER_GENDER = "user_gender";
     private static final String USER_NAME = "username";
 
@@ -75,11 +76,13 @@ public class FragmentRegistrationOnBoard extends Fragment {
     }
 
     private void setNameEditTextWatcher() {
+        Log.d(TAG, "setNameEditTextWatcher: ");
         nameEt.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.d(TAG, "onTextChanged: ");
                 utils.storeString(getActivity(), USER_NAME, s.toString());
             }
 
@@ -90,6 +93,7 @@ public class FragmentRegistrationOnBoard extends Fragment {
     }
 
     private void setAlienBtnClickListener() {
+        Log.d(TAG, "setAlienBtnClickListener: ");
         alienBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Log.d(FragmentRegistrationOnBoard.TAG, "onClick: alienbtn");
@@ -106,6 +110,7 @@ public class FragmentRegistrationOnBoard extends Fragment {
     }
 
     private void setMaleBtnClickListener() {
+        Log.d(TAG, "setMaleBtnClickListener: ");
         maleBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Log.d(FragmentRegistrationOnBoard.TAG, "onClick: malebtn");

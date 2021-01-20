@@ -32,13 +32,14 @@ public class UnlockStoriesActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent.hasExtra("chat_name")) {
+            Log.d(TAG, "onCreate: if (intent.hasExtra(\"chat_name\")) {");
 
             chatName = intent.getStringExtra("chat_name");
             name.setText(chatName);
 
             Introductions introductions = new Introductions();
 
-            switch (chatName.toLowerCase()){
+            switch (chatName.toLowerCase()) {
                 case "john":
                     intro.setText(introductions.JohnFunny());
                     break;
@@ -73,10 +74,11 @@ public class UnlockStoriesActivity extends AppCompatActivity {
             }
         }
 
-        if(utils.getStoredBoolean(UnlockStoriesActivity.this, chatName+"trial"))
+        if (utils.getStoredBoolean(UnlockStoriesActivity.this, chatName + "trial"))
             trialBtn.setVisibility(View.GONE);
 
-        if(utils.getStoredBoolean(UnlockStoriesActivity.this, chatName+"unlock")) {
+        if (utils.getStoredBoolean(UnlockStoriesActivity.this, chatName + "unlock")) {
+            Log.d(TAG, "onCreate: if(utils.getStoredBoolean(UnlockStoriesActivity.this, chatName+\"unlock\")) {");
             unlockBtn.setVisibility(View.GONE);
             trialBtn.setVisibility(View.GONE);
             openBtn.setVisibility(View.VISIBLE);
@@ -92,11 +94,12 @@ public class UnlockStoriesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume: ");
 
-        if(utils.getStoredBoolean(UnlockStoriesActivity.this, chatName+"trial"))
+        if (utils.getStoredBoolean(UnlockStoriesActivity.this, chatName + "trial"))
             trialBtn.setVisibility(View.GONE);
 
-        if(utils.getStoredBoolean(UnlockStoriesActivity.this, chatName+"unlock")) {
+        if (utils.getStoredBoolean(UnlockStoriesActivity.this, chatName + "unlock")) {
             unlockBtn.setVisibility(View.GONE);
             trialBtn.setVisibility(View.GONE);
             openBtn.setVisibility(View.VISIBLE);
@@ -104,9 +107,11 @@ public class UnlockStoriesActivity extends AppCompatActivity {
     }
 
     private void setOpenBtnClickListener() {
+        Log.d(TAG, "setOpenBtnClickListener: ");
         openBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: setOpenBtnClickListener");
                 Intent intent1 = new Intent(UnlockStoriesActivity.this, ConversationActivity.class);
                 intent1.putExtra("chat_name", chatName);
                 intent1.putExtra("trial", false);
@@ -117,14 +122,16 @@ public class UnlockStoriesActivity extends AppCompatActivity {
     }
 
     private void setUnlockBtnClickListsner() {
+        Log.d(TAG, "setUnlockBtnClickListsner: ");
         unlockBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: setUnlockBtnClickListsner");
                 Intent intent1 = new Intent(UnlockStoriesActivity.this, ConversationActivity.class);
                 intent1.putExtra("chat_name", chatName);
                 intent1.putExtra("trial", false);
 
-                utils.storeBoolean(UnlockStoriesActivity.this, chatName+"unlock", true);
+                utils.storeBoolean(UnlockStoriesActivity.this, chatName + "unlock", true);
 
                 startActivity(intent1);
             }
@@ -132,14 +139,16 @@ public class UnlockStoriesActivity extends AppCompatActivity {
     }
 
     private void setTrialBtnClickListener() {
+        Log.d(TAG, "setTrialBtnClickListener: ");
         trialBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+                Log.d(TAG, "onClick: setTrialBtnClickListener");
 
                 Intent intent1 = new Intent(UnlockStoriesActivity.this, ConversationActivity.class);
                 intent1.putExtra("chat_name", chatName);
                 intent1.putExtra("trial", true);
 
-                utils.storeBoolean(UnlockStoriesActivity.this, chatName+"trial", true);
+                utils.storeBoolean(UnlockStoriesActivity.this, chatName + "trial", true);
 
                 startActivity(intent1);
             }

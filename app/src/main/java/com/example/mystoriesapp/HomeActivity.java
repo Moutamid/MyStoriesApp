@@ -34,7 +34,8 @@ public class HomeActivity extends AppCompatActivity {
     private Utils utils = new Utils();
     private TextView last_chat_name;
 
-    private void fillNames(){
+    private void fillNames() {
+        Log.d(TAG, "fillNames: ");
 
         names.clear();
 
@@ -43,36 +44,37 @@ public class HomeActivity extends AppCompatActivity {
             names.add("John");
 
         if (utils.getStoredString(HomeActivity.this, "charlie").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "charlie").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "charlie").equals("ended"))
             names.add("Charlie");
 
         if (utils.getStoredString(HomeActivity.this, "carl").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "carl").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "carl").equals("ended"))
             names.add("Carl");
 
         if (utils.getStoredString(HomeActivity.this, "kathy").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "kathy").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "kathy").equals("ended"))
             names.add("Kathy");
 
         if (utils.getStoredString(HomeActivity.this, "alice").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "alice").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "alice").equals("ended"))
             names.add("Alice");
 
         if (utils.getStoredString(HomeActivity.this, "william").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "william").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "william").equals("ended"))
             names.add("William");
 
         if (utils.getStoredString(HomeActivity.this, "sam").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "sam").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "sam").equals("ended"))
             names.add("Sam");
 
         if (utils.getStoredString(HomeActivity.this, "alex").equals("incomplete")
-        || utils.getStoredString(HomeActivity.this, "alex").equals("ended"))
+                || utils.getStoredString(HomeActivity.this, "alex").equals("ended"))
             names.add("Alex");
 
     }
 
-    private void initLayouts(){
+    private void initLayouts() {
+        Log.d(TAG, "initLayouts: ");
         johnLayout = findViewById(R.id.john_layout_home);
         aliceLayout = findViewById(R.id.alice_layout_home);
         charlieLayout = findViewById(R.id.charlie_layout_home);
@@ -87,12 +89,13 @@ public class HomeActivity extends AppCompatActivity {
         suspenseBtn = findViewById(R.id.suspense_btn_home);
         alienBtn = findViewById(R.id.alien_btn_home);
 
-        nmbrChatRecyclerView =  findViewById(R.id.incomplete_chats_list_recyclerview);
+        nmbrChatRecyclerView = findViewById(R.id.incomplete_chats_list_recyclerview);
         lastChatlayout = findViewById(R.id.last_chat_layout_home);
         last_chat_name = findViewById(R.id.last_chat_textview_home);
     }
 
-    private void setClickListeners(){
+    private void setClickListeners() {
+        Log.d(TAG, "setClickListeners: ");
         funnyBtn.setOnClickListener(funnyBtnClickListener());
         thrillerBtn.setOnClickListener(thrillerBtnClickListener());
         suspenseBtn.setOnClickListener(suspenseBtnClickListener());
@@ -103,6 +106,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume: ");
+
         fillNames();
         incompleteChatAdapter.notifyDataSetChanged();
 
@@ -111,9 +116,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private OnClickListener lastChatlayoutClickListener() {
+        Log.d(TAG, "lastChatlayoutClickListener: ");
         return new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "lastChatlayoutClickListener onClick: ");
 
                 String tag = last_chat_name.getText().toString().toLowerCase();
 
@@ -123,9 +130,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void startUnlockStoryActivity(String tag) {
+        Log.d(TAG, "startUnlockStoryActivity: ");
         Intent intent = new Intent(HomeActivity.this, UnlockStoriesActivity.class);
 
-        switch (tag){
+        switch (tag) {
             case "john":
                 intent.putExtra("chat_name", "John");
                 break;
@@ -163,9 +171,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private OnClickListener alienBtnClickListener() {
+        Log.d(TAG, "alienBtnClickListener: ");
         return new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: alienBtnClickListener");
 
                 alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 alienBtn.setTextColor(getResources().getColor(R.color.white));
@@ -193,9 +203,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private OnClickListener suspenseBtnClickListener() {
+        Log.d(TAG, "suspenseBtnClickListener: ");
         return new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: suspenseBtnClickListener");
 
                 suspenseBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 suspenseBtn.setTextColor(getResources().getColor(R.color.white));
@@ -224,9 +236,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private OnClickListener thrillerBtnClickListener() {
+        Log.d(TAG, "thrillerBtnClickListener: ");
         return new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: thrillerBtnClickListener");
 
                 thrillerBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 thrillerBtn.setTextColor(getResources().getColor(R.color.white));
@@ -253,9 +267,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private OnClickListener funnyBtnClickListener() {
+        Log.d(TAG, "funnyBtnClickListener: ");
         return new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: funnyBtnClickListener");
 
                 funnyBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 funnyBtn.setTextColor(getResources().getColor(R.color.white));
@@ -280,7 +296,7 @@ public class HomeActivity extends AppCompatActivity {
         };
     }
 
-    public void HomeStoryClickedMethod(View v){
+    public void HomeStoryClickedMethod(View v) {
         Log.d(TAG, "HomeStoryClickedMethod: started");
 
         RelativeLayout layout = (RelativeLayout) v;
@@ -294,18 +310,19 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: started");
 
-        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("stories")){
+        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("stories")) {
             finish();
             startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
             return;
         }
 
-        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("main")){
+        //TODO: deal with main variable bacuse activity is opening
+        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("main")) {
             finish();
             startActivity(new Intent(HomeActivity.this, MainActivity.class));
             return;
         }
-        startActivity(new Intent(HomeActivity.this, MainActivity.class));
+        //startActivity(new Intent(HomeActivity.this, MainActivity.class));
         fillNames();
         initLayouts();
         setClickListeners();
