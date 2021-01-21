@@ -1,5 +1,6 @@
 package com.example.mystoriesapp;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -7,27 +8,37 @@ import java.util.ArrayList;
 public class Stories {
     private static final String TAG = "Stories";
 
+    private Utils utils = new Utils();
+    private Context context;
+
+    public Stories(Context context) {
+        this.context = context;
+    }
+
     public ArrayList<ChatMessage> JohnFunny() {
         Log.d(TAG, "john: returned");
 
         ArrayList<ChatMessage> msgs = new ArrayList<>();
 
         msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm john \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("Hey " + utils.getStoredString(context, "userName"), "bot"));
+        msgs.add(new ChatMessage("I'm john", "bot"));
         msgs.add(new ChatMessage("How are you?", "bot"));
+        msgs.add(new ChatMessage("5 minutes later", "middle"));
         msgs.add(new ChatMessage("My lawyer says I don’t have to answer that question \uD83E\uDD2D", "me"));
         msgs.add(new ChatMessage("Lawyer??", "bot"));
         msgs.add(new ChatMessage("Which lawyer \uD83E\uDD14\uD83E\uDD14", "bot"));
         msgs.add(new ChatMessage("Do you really care?", "me"));
-        msgs.add(new ChatMessage("No \uD83D\uDE02 ", "bot"));
-        msgs.add(new ChatMessage("Go to hell ", "bot"));
+        msgs.add(new ChatMessage("No", "bot"));
+        msgs.add(new ChatMessage("Go to hell \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("No one cares for me \uD83D\uDE2D\uD83D\uDE2D", "me"));
         msgs.add(new ChatMessage("Bro, take it easy!", "bot"));
+        msgs.add(new ChatMessage("10 minutes later", "middle"));
         msgs.add(new ChatMessage("Guess what!", "bot"));
         msgs.add(new ChatMessage("You're single & I'm single too", "bot"));
         msgs.add(new ChatMessage("You know what that means?", "bot"));
         msgs.add(new ChatMessage("What?", "me"));
+        msgs.add(new ChatMessage("15 minutes later", "middle"));
         msgs.add(new ChatMessage("We're both ugly! \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("Stop it \uD83D\uDE02", "me"));
 

@@ -1,533 +1,567 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     android:paddingStart="15dp"
     android:paddingLeft="15dp"
     android:paddingTop="15dp"
     android:paddingEnd="15dp"
     android:paddingRight="15dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="STORIES"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/image" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="STORIES"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:text="Funny"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
-                <TextView
+            <RelativeLayout
+                android:id="@+id/lisa_chat_item_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="john">
+
+                <ImageView
+                    android:id="@+id/wewe1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Funny"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw1"
+                    android:layout_toLeftOf="@+id/qwqw1"
+                    android:layout_toEndOf="@+id/wewe1"
+                    android:layout_toRightOf="@+id/wewe1"
+                    android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/lisa_chat_item_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="john">
-
-                    <ImageView
-                        android:id="@+id/wewe1"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw1"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw1"
-                        android:layout_toRightOf="@+id/wewe1"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="John"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="John"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="alice">
-
-                    <ImageView
-                        android:id="@+id/wewe2"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw2"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw2"
-                        android:layout_toRightOf="@+id/wewe2"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Alice"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="alice">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/wewe2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
 
-                <TextView
+                <ImageView
+                    android:id="@+id/qwqw2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Suspense"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw2"
+                    android:layout_toLeftOf="@+id/qwqw2"
+                    android:layout_toEndOf="@+id/wewe2"
+                    android:layout_toRightOf="@+id/wewe2"
+                    android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="charlie">
-
-                    <ImageView
-                        android:id="@+id/wewe8"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw8"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw8"
-                        android:layout_toRightOf="@+id/wewe8"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Alice"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Charlie"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="carl">
-
-                    <ImageView
-                        android:id="@+id/wewe7"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw7"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw7"
-                        android:layout_toRightOf="@+id/wewe7"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Carl"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Suspense"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-                <TextView
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="charlie">
+
+                <ImageView
+                    android:id="@+id/wewe8"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw8"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thriller"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw8"
+                    android:layout_toLeftOf="@+id/qwqw8"
+                    android:layout_toEndOf="@+id/wewe8"
+                    android:layout_toRightOf="@+id/wewe8"
+                    android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="kathy">
-
-                    <ImageView
-                        android:id="@+id/wewe5"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw5"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw5"
-                        android:layout_toRightOf="@+id/wewe5"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Charlie"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Kathy"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="william">
-
-                    <ImageView
-                        android:id="@+id/wewe6"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw6"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw6"
-                        android:layout_toRightOf="@+id/wewe6"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="William"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="carl">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/wewe7"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
 
-                <TextView
+                <ImageView
+                    android:id="@+id/qwqw7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Alien"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw7"
+                    android:layout_toLeftOf="@+id/qwqw7"
+                    android:layout_toEndOf="@+id/wewe7"
+                    android:layout_toRightOf="@+id/wewe7"
+                    android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="sam">
-
-                    <ImageView
-                        android:id="@+id/wewe9"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw9"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw9"
-                        android:layout_toRightOf="@+id/wewe9"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Carl"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Sam"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="StoryClickedMethod"
-                    android:padding="10dp"
-                    android:tag="alex">
-
-                    <ImageView
-                        android:id="@+id/wewe0"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <ImageView
-                        android:id="@+id/qwqw0"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/image" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toLeftOf="@+id/qwqw0"
-                        android:layout_toRightOf="@+id/wewe0"
-                        android:orientation="vertical">
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Alex"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thriller"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Begin where you left of"
-                            android:textColor="@color/darkerGrey"
-                            android:textSize="15sp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
-                </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="kathy">
 
-                <View
+                <ImageView
+                    android:id="@+id/wewe5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw5"
+                    android:layout_toLeftOf="@+id/qwqw5"
+                    android:layout_toEndOf="@+id/wewe5"
+                    android:layout_toRightOf="@+id/wewe5"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Kathy"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-        </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="william">
 
-</RelativeLayout>
+                <ImageView
+                    android:id="@+id/wewe6"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw6"
+                    android:layout_toLeftOf="@+id/qwqw6"
+                    android:layout_toEndOf="@+id/wewe6"
+                    android:layout_toRightOf="@+id/wewe6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="William"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alien"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="sam">
+
+                <ImageView
+                    android:id="@+id/wewe9"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw9"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw9"
+                    android:layout_toLeftOf="@+id/qwqw9"
+                    android:layout_toEndOf="@+id/wewe9"
+                    android:layout_toRightOf="@+id/wewe9"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Sam"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="StoryClickedMethod"
+                android:padding="10dp"
+                android:tag="alex">
+
+                <ImageView
+                    android:id="@+id/wewe0"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <ImageView
+                    android:id="@+id/qwqw0"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/image" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toStartOf="@+id/qwqw0"
+                    android:layout_toLeftOf="@+id/qwqw0"
+                    android:layout_toEndOf="@+id/wewe0"
+                    android:layout_toRightOf="@+id/wewe0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Alex"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Begin where you left of"
+                        android:textColor="@color/darkerGrey"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -310,14 +310,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: started");
 
-        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("stories")) {
-            finish();
-            startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
-            return;
-        }
-
-        //TODO: deal with main variable bacuse activity is opening
-        if (utils.getStoredString(HomeActivity.this, "current_activity").equals("main")) {
+        if (utils.getStoredString(HomeActivity.this, "userName").equals("Error")) {
             finish();
             startActivity(new Intent(HomeActivity.this, MainActivity.class));
             return;
@@ -343,12 +336,17 @@ public class HomeActivity extends AppCompatActivity {
 
         setIncompleteChatsRecyclerView();
 
-        YoYo.with(Techniques.StandUp).duration(800).onEnd(new YoYo.AnimatorCallback() {
-            @Override
-            public void call(Animator animator) {
-                YoYo.with(Techniques.Shake).duration(800).delay(5000).playOn(lastChatlayout);
-            }
-        }).playOn(lastChatlayout);
+        if (utils.getStoredString
+                (HomeActivity.this, last_chat_name.getText().toString().toLowerCase())
+                .equals("incomplete")) {
+
+            YoYo.with(Techniques.StandUp).duration(800).onEnd(new YoYo.AnimatorCallback() {
+                @Override
+                public void call(Animator animator) {
+                    YoYo.with(Techniques.Shake).duration(800).delay(5000).playOn(lastChatlayout);
+                }
+            }).playOn(lastChatlayout);
+        }
 
         YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(username);
 
@@ -392,7 +390,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     String name = names.get(position);
-                    startUnlockStoryActivity(name.toLowerCase());
+                    startUnlockStoryActivity(name);
                 }
             });
 

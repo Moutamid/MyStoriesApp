@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class ConversationActivity extends AppCompatActivity {
     private Button nextBtn;
 
     private ImageView backBtn;
+    private ImageView infoBtn;
 
     private ArrayList<ChatMessage> currentMessagesArrayList = new ArrayList<>();
     private ArrayList<ChatMessage> completeMessagesArrayList = new ArrayList<>();
@@ -73,6 +75,7 @@ public class ConversationActivity extends AppCompatActivity {
 
     private void initViews() {
         Log.d(TAG, "initViews: ");
+        infoBtn = findViewById(R.id.menu_btn_conversation);
         nextBtn = findViewById(R.id.nxt_btn_conversation_activity);
         middleLayout = findViewById(R.id.middle_layout_conversation);
         username = findViewById(R.id.user_name_conversation);
@@ -81,6 +84,57 @@ public class ConversationActivity extends AppCompatActivity {
 
         nextBtn.setOnClickListener(nextBtnClickListener());
         backBtn.setOnClickListener(backBtnClickListener());
+        infoBtn.setOnClickListener(infoBtnClickListener());
+    }
+
+    private View.OnClickListener infoBtnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startUnlockStoryActivity(chatName);
+            }
+        };
+    }
+
+    private void startUnlockStoryActivity(String tag) {
+        Log.d(TAG, "startUnlockStoryActivity: ");
+        Intent intent = new Intent(ConversationActivity.this, UnlockStoriesActivity.class);
+
+        switch (tag) {
+            case "john":
+                intent.putExtra("chat_name", "John");
+                break;
+
+            case "alice":
+                intent.putExtra("chat_name", "Alice");
+                break;
+
+            case "charlie":
+                intent.putExtra("chat_name", "Charlie");
+                break;
+
+            case "carl":
+                intent.putExtra("chat_name", "Carl");
+                break;
+
+            case "kathy":
+                intent.putExtra("chat_name", "Kathy");
+                break;
+
+            case "william":
+                intent.putExtra("chat_name", "William");
+                break;
+
+            case "sam":
+                intent.putExtra("chat_name", "Sam");
+                break;
+
+            case "alex":
+                intent.putExtra("chat_name", "Alex");
+                break;
+        }
+
+        startActivity(intent);
     }
 
     private View.OnClickListener backBtnClickListener() {
@@ -142,6 +196,7 @@ public class ConversationActivity extends AppCompatActivity {
                         String msg = completeMessagesArrayList.get(counter).getMsgText();
                         String msgUser = completeMessagesArrayList.get(counter).getMsgUser();
 
+                        // TODO: FOR MIDDLE SCREENS DIALOG WITH MESSAGES
                         if (msgUser.equals("middle"))
                             showMiddleScreen(msg);
                         else
@@ -156,6 +211,8 @@ public class ConversationActivity extends AppCompatActivity {
                     onlinestatus.setTextColor(getResources().getColor(R.color.red));
 
                     counter--;
+
+                    nextBtn.setTranslationY(400f);
 
                     utils.storeString(ConversationActivity.this, chatName.toLowerCase(), "ended");
                 }
@@ -189,7 +246,7 @@ public class ConversationActivity extends AppCompatActivity {
         //completeMessagesArrayList.add(new ChatMessage("fillArrayListWithData Hi, how are you2", "bot"));
         Log.d(TAG, "fillArrayListWithData: started");
 
-        Stories stories = new Stories();
+        Stories stories = new Stories(ConversationActivity.this);
 
         Intent intent = getIntent();
 
@@ -248,7 +305,7 @@ public class ConversationActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapterMessages();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        //linearLayoutManager.setStackFromEnd(true);
+        linearLayoutManager.setStackFromEnd(true);
 
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
         conversationRecyclerView.setHasFixedSize(true);
@@ -263,6 +320,7 @@ public class ConversationActivity extends AppCompatActivity {
     private void scrollRecyclerViewToEnd() {
         Log.d(TAG, "scrollRecyclerViewToEnd: ");
         conversationRecyclerView.scrollToPosition(conversationRecyclerView.getAdapter().getItemCount() - 1);
+
     }
 
     private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
@@ -280,15 +338,15 @@ public class ConversationActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
             Log.d(TAG, "onBindViewHolder: " + position);
 
-            if (currentMessagesArrayList.get(position).getMsgUser().equals("me")) {
+            if (currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgUser().equals("me")) {
 
-                holder.rightText.setText(currentMessagesArrayList.get(position).getMsgText());
+                holder.rightText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
 
                 holder.leftText.setVisibility(View.GONE);
 
             } else {
 
-                holder.leftText.setText(currentMessagesArrayList.get(position).getMsgText());
+                holder.leftText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
 
                 holder.rightText.setVisibility(View.GONE);
             }

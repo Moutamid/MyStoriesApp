@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="Hey there, "
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/user_name_textview_home"
@@ -58,9 +58,9 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="Moutamid!"
+                    android:text="User name!"
                     android:textColor="@color/darkSkyBlue"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="normal|bold|italic" />
 
             </LinearLayout>
@@ -75,8 +75,9 @@
 
                 <ImageView
                     android:id="@+id/wewe"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/image" />
@@ -85,13 +86,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/qwqw"
-                    android:layout_toRightOf="@+id/wewe"
-                    android:orientation="vertical"
                     android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_toStartOf="@+id/qwqw"
-                    android:layout_toEndOf="@+id/wewe">
+                    android:layout_toLeftOf="@+id/qwqw"
+                    android:layout_toEndOf="@+id/wewe"
+                    android:layout_toRightOf="@+id/wewe"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/last_chat_textview_home"
@@ -101,7 +102,7 @@
                         android:maxLines="1"
                         android:text="Lisa"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -111,7 +112,7 @@
                         android:maxLines="1"
                         android:text="Begin where you left of"
                         android:textColor="@color/darkerGrey"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="italic" />
 
                 </LinearLayout>
@@ -120,10 +121,11 @@
                     android:id="@+id/qwqw"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image"
-                    android:layout_alignParentEnd="true" />
+                    android:rotation="180"
+                    android:src="@drawable/ic_arrow_back" />
 
             </RelativeLayout>
 
@@ -144,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:text="Stories "
                         android:textColor="@color/darkSkyBlue"
-                        android:textSize="23sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -154,7 +156,7 @@
                         android:maxLines="1"
                         android:text="for you to choose"
                         android:textColor="@color/black"
-                        android:textSize="23sp" />
+                        android:textSize="22sp" />
 
                 </LinearLayout>
 
@@ -176,7 +178,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:text="Funny"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
 
                         <Button
                             android:id="@+id/thriller_btn_home"
@@ -186,7 +189,8 @@
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
                             android:text="Thriller"
-                            android:textColor="@color/orange" />
+                            android:textColor="@color/orange"
+                            android:textSize="14sp" />
 
                         <Button
                             android:id="@+id/suspense_btn_home"
@@ -196,7 +200,8 @@
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
                             android:text="Suspense"
-                            android:textColor="@color/orange" />
+                            android:textColor="@color/orange"
+                            android:textSize="14sp" />
 
                         <Button
                             android:id="@+id/alien_btn_home"
@@ -206,7 +211,8 @@
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
                             android:text="Alien"
-                            android:textColor="@color/orange" />
+                            android:textColor="@color/orange"
+                            android:textSize="14sp" />
 
                         <Button
                             android:id="@+id/showAllStoriesBtnChatList"
@@ -216,7 +222,8 @@
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/bg_gender_btn_unclicked_registration_on_board"
                             android:text="Show All"
-                            android:textColor="@color/orange" />
+                            android:textColor="@color/orange"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -234,8 +241,8 @@
 
                         <RelativeLayout
                             android:id="@+id/john_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:onClick="HomeStoryClickedMethod"
@@ -249,8 +256,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -263,15 +270,15 @@
                                     android:maxLines="1"
                                     android:text="John"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/alice_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
@@ -287,8 +294,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -301,15 +308,15 @@
                                     android:maxLines="1"
                                     android:text="Alice"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/charlie_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:onClick="HomeStoryClickedMethod"
@@ -324,8 +331,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -338,15 +345,15 @@
                                     android:maxLines="1"
                                     android:text="Charlie"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/carl_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
@@ -363,8 +370,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -377,15 +384,15 @@
                                     android:maxLines="1"
                                     android:text="Carl"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/kathy_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:onClick="HomeStoryClickedMethod"
@@ -400,8 +407,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -414,15 +421,15 @@
                                     android:maxLines="1"
                                     android:text="Kathy"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/william_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
@@ -439,8 +446,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -453,15 +460,15 @@
                                     android:maxLines="1"
                                     android:text="William"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/sam_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/bg_gender_btn_clicked_registration_on_board"
                             android:onClick="HomeStoryClickedMethod"
@@ -476,8 +483,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -490,15 +497,15 @@
                                     android:maxLines="1"
                                     android:text="Sam"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/alex_layout_home"
-                            android:layout_width="140dp"
-                            android:layout_height="150dp"
+                            android:layout_width="130dp"
+                            android:layout_height="140dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
@@ -515,8 +522,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_gravity="start"
                                     android:src="@drawable/image" />
 
@@ -529,7 +536,7 @@
                                     android:maxLines="1"
                                     android:text="Alex"
                                     android:textColor="@color/white"
-                                    android:textSize="26sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
@@ -559,7 +566,7 @@
                         android:layout_height="wrap_content"
                         android:text="People "
                         android:textColor="@color/darkSkyBlue"
-                        android:textSize="23sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -569,7 +576,7 @@
                         android:maxLines="1"
                         android:text="in your chat"
                         android:textColor="@color/black"
-                        android:textSize="23sp" />
+                        android:textSize="22sp" />
 
                 </LinearLayout>
 

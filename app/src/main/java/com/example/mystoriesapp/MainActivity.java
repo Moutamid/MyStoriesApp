@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started");
 
         data();
-
-        utils.storeString(MainActivity.this, "current_activity", "main");
     }
 
     private void data() {
@@ -123,13 +121,13 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                finish();
-                startActivity(new Intent(MainActivity.this, StoriesListActivity.class));
-
                 utils.storeBoolean(MainActivity.this, "first_convno", true);
 
-                Toast.makeText(MainActivity.this, username + " " + usergender, Toast.LENGTH_SHORT).show();
+                utils.storeString(MainActivity.this, "userName", username);
+                utils.storeString(MainActivity.this, "userGender", usergender);
 
+                finish();
+                startActivity(new Intent(MainActivity.this, StoriesListActivity.class));
             }
         });
     }

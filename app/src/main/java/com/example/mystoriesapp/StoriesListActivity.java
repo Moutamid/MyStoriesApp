@@ -10,14 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StoriesListActivity extends AppCompatActivity {
     private static final String TAG = "StoriesListActivity";
-    private Stories stories = new Stories();
+    //private Stories stories = new Stories();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories_list);
         Log.d(TAG, "onCreate: started");
-
-        new Utils().storeString(StoriesListActivity.this, "current_activity", "stories");
 
     }
 
