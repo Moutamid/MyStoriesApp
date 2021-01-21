@@ -22,7 +22,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/image" />
+        android:rotation="180"
+        android:src="@drawable/ic_arrow_back" />
 
     <!--    <LinearLayout-->
     <!--        android:layout_width="match_parent"-->

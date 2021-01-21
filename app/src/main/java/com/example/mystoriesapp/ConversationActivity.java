@@ -196,7 +196,6 @@ public class ConversationActivity extends AppCompatActivity {
                         String msg = completeMessagesArrayList.get(counter).getMsgText();
                         String msgUser = completeMessagesArrayList.get(counter).getMsgUser();
 
-                        // TODO: FOR MIDDLE SCREENS DIALOG WITH MESSAGES
                         if (msgUser.equals("middle"))
                             showMiddleScreen(msg);
                         else

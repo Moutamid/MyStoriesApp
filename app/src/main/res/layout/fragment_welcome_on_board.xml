@@ -39,7 +39,9 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.3"
             android:gravity="center"
-            android:text="Welcome to a platform for interactive story games using realistic chat simulators."
+            android:text="Welcome to a platform of interactive stories using realistic chat simulator."
             android:textSize="18sp" />
+
     </LinearLayout>
+
 </RelativeLayout>

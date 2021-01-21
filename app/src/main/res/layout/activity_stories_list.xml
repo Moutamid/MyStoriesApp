@@ -75,7 +75,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,7 +136,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -204,7 +206,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -264,7 +267,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -332,7 +336,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -392,7 +397,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -460,7 +466,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -520,7 +527,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_arrow_back"
+                    android:rotation="180"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -12,6 +12,7 @@ public class StoriesListActivity extends AppCompatActivity {
     private static final String TAG = "StoriesListActivity";
     //private Stories stories = new Stories();
 
+    // TODO: add profile pictures of all the characters
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories_list);

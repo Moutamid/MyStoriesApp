@@ -34,6 +34,59 @@ public class HomeActivity extends AppCompatActivity {
     private Utils utils = new Utils();
     private TextView last_chat_name;
 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        Log.d(TAG, "onCreate: started");
+
+        if (utils.getStoredString(HomeActivity.this, "userName").equals("Error")) {
+            finish();
+            startActivity(new Intent(HomeActivity.this, MainActivity.class));
+            return;
+        }
+        //startActivity(new Intent(HomeActivity.this, MainActivity.class));
+        fillNames();
+        initLayouts();
+        setClickListeners();
+
+        TextView username = findViewById(R.id.user_name_textview_home);
+
+        // Setting user name
+        username.setText(utils.getStoredString(HomeActivity.this, "username"));
+
+        // Setting last chat name
+        last_chat_name.setText(utils.getStoredString(HomeActivity.this, "last_chat"));
+
+        if (last_chat_name.getText().toString().equals("Error")) {
+            finish();
+            startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
+            return;
+        }
+
+        findViewById(R.id.showAllStoriesBtnChatList).setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                HomeActivity.this.startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
+            }
+        });
+
+        setIncompleteChatsRecyclerView();
+
+        if (utils.getStoredString
+                (HomeActivity.this, last_chat_name.getText().toString().toLowerCase())
+                .equals("incomplete")) {
+
+            YoYo.with(Techniques.StandUp).duration(800).onEnd(new YoYo.AnimatorCallback() {
+                @Override
+                public void call(Animator animator) {
+                    YoYo.with(Techniques.Shake).duration(800).delay(5000).playOn(lastChatlayout);
+                }
+            }).playOn(lastChatlayout);
+        }
+
+        YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(username);
+
+    }
+
     private void fillNames() {
         Log.d(TAG, "fillNames: ");
 
@@ -180,9 +233,6 @@ public class HomeActivity extends AppCompatActivity {
                 alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 alienBtn.setTextColor(getResources().getColor(R.color.white));
 
-                alexLayout.setVisibility(View.VISIBLE);
-                samLayout.setVisibility(View.VISIBLE);
-
                 funnyBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
                 funnyBtn.setTextColor(getResources().getColor(R.color.orange));
                 thrillerBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
@@ -198,6 +248,12 @@ public class HomeActivity extends AppCompatActivity {
                 charlieLayout.setVisibility(View.GONE);
                 carlLayout.setVisibility(View.GONE);
 
+
+                alexLayout.setVisibility(View.VISIBLE);
+                samLayout.setVisibility(View.VISIBLE);
+
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(alexLayout);
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(samLayout);
             }
         };
     }
@@ -212,9 +268,6 @@ public class HomeActivity extends AppCompatActivity {
                 suspenseBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 suspenseBtn.setTextColor(getResources().getColor(R.color.white));
 
-                charlieLayout.setVisibility(View.VISIBLE);
-                carlLayout.setVisibility(View.VISIBLE);
-
                 funnyBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
                 funnyBtn.setTextColor(getResources().getColor(R.color.orange));
                 alienBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
@@ -230,7 +283,11 @@ public class HomeActivity extends AppCompatActivity {
                 kathyLayout.setVisibility(View.GONE);
                 williamLayout.setVisibility(View.GONE);
 
+                charlieLayout.setVisibility(View.VISIBLE);
+                carlLayout.setVisibility(View.VISIBLE);
 
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(charlieLayout);
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(carlLayout);
             }
         };
     }
@@ -245,9 +302,6 @@ public class HomeActivity extends AppCompatActivity {
                 thrillerBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 thrillerBtn.setTextColor(getResources().getColor(R.color.white));
 
-                kathyLayout.setVisibility(View.VISIBLE);
-                williamLayout.setVisibility(View.VISIBLE);
-
                 funnyBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
                 funnyBtn.setTextColor(getResources().getColor(R.color.orange));
                 suspenseBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
@@ -262,6 +316,11 @@ public class HomeActivity extends AppCompatActivity {
                 alexLayout.setVisibility(View.GONE);
                 samLayout.setVisibility(View.GONE);
 
+                kathyLayout.setVisibility(View.VISIBLE);
+                williamLayout.setVisibility(View.VISIBLE);
+
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(kathyLayout);
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(williamLayout);
             }
         };
     }
@@ -276,9 +335,6 @@ public class HomeActivity extends AppCompatActivity {
                 funnyBtn.setBackgroundResource(R.drawable.bg_gender_btn_clicked_registration_on_board);
                 funnyBtn.setTextColor(getResources().getColor(R.color.white));
 
-                johnLayout.setVisibility(View.VISIBLE);
-                aliceLayout.setVisibility(View.VISIBLE);
-
                 thrillerBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
                 thrillerBtn.setTextColor(getResources().getColor(R.color.orange));
                 suspenseBtn.setBackgroundResource(R.drawable.bg_gender_btn_unclicked_registration_on_board);
@@ -292,6 +348,12 @@ public class HomeActivity extends AppCompatActivity {
                 williamLayout.setVisibility(View.GONE);
                 alexLayout.setVisibility(View.GONE);
                 samLayout.setVisibility(View.GONE);
+
+                johnLayout.setVisibility(View.VISIBLE);
+                aliceLayout.setVisibility(View.VISIBLE);
+
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(johnLayout);
+                YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(aliceLayout);
             }
         };
     }
@@ -303,53 +365,6 @@ public class HomeActivity extends AppCompatActivity {
         String tag = layout.getTag().toString();
 
         startUnlockStoryActivity(tag);
-    }
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        Log.d(TAG, "onCreate: started");
-
-        if (utils.getStoredString(HomeActivity.this, "userName").equals("Error")) {
-            finish();
-            startActivity(new Intent(HomeActivity.this, MainActivity.class));
-            return;
-        }
-        //startActivity(new Intent(HomeActivity.this, MainActivity.class));
-        fillNames();
-        initLayouts();
-        setClickListeners();
-
-        TextView username = findViewById(R.id.user_name_textview_home);
-
-        // Setting user name
-        username.setText(utils.getStoredString(HomeActivity.this, "username"));
-
-        // Setting last chat name
-        last_chat_name.setText(utils.getStoredString(HomeActivity.this, "last_chat"));
-
-        findViewById(R.id.showAllStoriesBtnChatList).setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                HomeActivity.this.startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
-            }
-        });
-
-        setIncompleteChatsRecyclerView();
-
-        if (utils.getStoredString
-                (HomeActivity.this, last_chat_name.getText().toString().toLowerCase())
-                .equals("incomplete")) {
-
-            YoYo.with(Techniques.StandUp).duration(800).onEnd(new YoYo.AnimatorCallback() {
-                @Override
-                public void call(Animator animator) {
-                    YoYo.with(Techniques.Shake).duration(800).delay(5000).playOn(lastChatlayout);
-                }
-            }).playOn(lastChatlayout);
-        }
-
-        YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(username);
-
     }
 
     private void setIncompleteChatsRecyclerView() {
