@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ConversationActivity extends AppCompatActivity {
     private static final String TAG = "ConversationActivity";
@@ -28,6 +30,7 @@ public class ConversationActivity extends AppCompatActivity {
     private boolean isTrial = true;
 
     private TextView username, onlinestatus;
+    private CircleImageView profileImage;
     private String chatName;
 
     private RecyclerView conversationRecyclerView;
@@ -79,6 +82,7 @@ public class ConversationActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.nxt_btn_conversation_activity);
         middleLayout = findViewById(R.id.middle_layout_conversation);
         username = findViewById(R.id.user_name_conversation);
+        profileImage = findViewById(R.id.user_profile_image_conversation);
         onlinestatus = findViewById(R.id.online_status_text_conversation);
         backBtn = findViewById(R.id.back_btn_conversation);
 
@@ -91,7 +95,7 @@ public class ConversationActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startUnlockStoryActivity(chatName);
+                startUnlockStoryActivity(username.getText().toString().toLowerCase());
             }
         };
     }
@@ -164,8 +168,12 @@ public class ConversationActivity extends AppCompatActivity {
         int i = 0;
         do {
 
-            if (completeMessagesArrayList.get(i) != null)
+//            if (completeMessagesArrayList.get(i) != null)
+            if (completeMessagesArrayList != null && completeMessagesArrayList.size() > 0) {
+
+                if (!completeMessagesArrayList.get(i).getMsgUser().equals("middle"))
                 currentMessagesArrayList.add(completeMessagesArrayList.get(i));
+            }
             i++;
 
         } while (i <= counter);
@@ -252,39 +260,53 @@ public class ConversationActivity extends AppCompatActivity {
         if (intent.hasExtra("chat_name")) {
 
             chatName = intent.getStringExtra("chat_name");
+
+            if (chatName == null) {
+                Toast.makeText(this, "No chat exist!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             username.setText(chatName);
 
             switch (chatName.toLowerCase()) {
                 case "john":
                     completeMessagesArrayList = stories.JohnFunny();
+                    profileImage.setImageResource(R.drawable.john);
                     break;
 
                 case "alice":
                     completeMessagesArrayList = stories.AliceFunny();
+                    profileImage.setImageResource(R.drawable.alice);
                     break;
 
                 case "charlie":
                     completeMessagesArrayList = stories.CharlieSuspense();
+                    profileImage.setImageResource(R.drawable.charlie);
                     break;
 
                 case "carl":
                     completeMessagesArrayList = stories.CarlSuspense();
+                    profileImage.setImageResource(R.drawable.carl);
                     break;
 
                 case "kathy":
                     completeMessagesArrayList = stories.KathyThriller();
+                    profileImage.setImageResource(R.drawable.kathy);
                     break;
 
                 case "william":
                     completeMessagesArrayList = stories.WilliamThriller();
+                    profileImage.setImageResource(R.drawable.william);
                     break;
 
                 case "sam":
                     completeMessagesArrayList = stories.SamOther();
+                    profileImage.setImageResource(R.drawable.sam);
                     break;
 
                 case "alex":
                     completeMessagesArrayList = stories.AlexOther();
+                    profileImage.setImageResource(R.drawable.alex);
                     break;
             }
         }
@@ -304,11 +326,11 @@ public class ConversationActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapterMessages();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
+//        linearLayoutManager.setStackFromEnd(true);
 
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
-        conversationRecyclerView.setHasFixedSize(true);
-        conversationRecyclerView.setNestedScrollingEnabled(false);
+//        conversationRecyclerView.setHasFixedSize(true);
+//        conversationRecyclerView.setNestedScrollingEnabled(false);
 
         conversationRecyclerView.setAdapter(adapter);
 
@@ -323,31 +345,58 @@ public class ConversationActivity extends AppCompatActivity {
     }
 
     private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
-            <RecyclerViewAdapterMessages.ViewHolderMessages> {
+            <RecyclerView.ViewHolder> {
+
+//        @NonNull
+//        @Override
+//        public ViewHolderMessages onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+//            Log.d(TAG, "onCreateViewHolder: ");
+//            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msg_left, parent, false);
+//            return new ViewHolderMessages(view);
+//        }
+//
+//        @Override
+//        public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
+//            Log.d(TAG, "onBindViewHolder: " + position);
+//
+//            if (currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgUser().equals("me")) {
+//
+//                holder.rightText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
+//
+//                holder.leftText.setVisibility(View.GONE);
+//
+//            } else {
+//
+//                holder.leftText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
+//
+//                holder.rightText.setVisibility(View.GONE);
+//            }
+//
+//        }
 
         @NonNull
         @Override
-        public ViewHolderMessages onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-            Log.d(TAG, "onCreateViewHolder: ");
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msgs, parent, false);
-            return new ViewHolderMessages(view);
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+            if (viewType == 1) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msg_left, parent, false);
+                return new ViewHolderLeftMessage(view);
+
+            } else {
+                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_msg_right, parent, false);
+                return new ViewHolderRightMessage(view1);
+            }
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ViewHolderMessages holder, int position) {
-            Log.d(TAG, "onBindViewHolder: " + position);
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-            if (currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgUser().equals("me")) {
-
-                holder.rightText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
-
-                holder.leftText.setVisibility(View.GONE);
-
+            if (holder.getItemViewType() == 1) {
+                ViewHolderLeftMessage holderLeftMessage = (ViewHolderLeftMessage) holder;
+                holderLeftMessage.leftText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
             } else {
-
-                holder.leftText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
-
-                holder.rightText.setVisibility(View.GONE);
+                ViewHolderRightMessage holderRightMessage = (ViewHolderRightMessage) holder;
+                holderRightMessage.rightText.setText(currentMessagesArrayList.get(holder.getAdapterPosition()).getMsgText());
             }
 
         }
@@ -359,19 +408,55 @@ public class ConversationActivity extends AppCompatActivity {
             return currentMessagesArrayList.size();
         }
 
-        public class ViewHolderMessages extends RecyclerView.ViewHolder {
+        @Override
+        public int getItemViewType(int position) {
 
-            TextView leftText, rightText;
-            //LinearLayout rightTextLayout;
+            /*
 
-            public ViewHolderMessages(@NonNull View v) {
-                super(v);
+             * 1 Left Message
+             * 2 Right Message
+             */
 
-                leftText = v.findViewById(R.id.leftText);
-                rightText = v.findViewById(R.id.rightText);
-                //  rightTextLayout = v.findViewById(R.id.rightTextLayout);
+            if (currentMessagesArrayList.get(position).getMsgUser().equals("me")) {
+                return 2;
+            } else {
+                return 1;
             }
         }
+
+        public class ViewHolderLeftMessage extends RecyclerView.ViewHolder {
+
+            TextView leftText;
+
+            public ViewHolderLeftMessage(@NonNull View v) {
+                super(v);
+                leftText = v.findViewById(R.id.leftText);
+            }
+        }
+
+        public class ViewHolderRightMessage extends RecyclerView.ViewHolder {
+
+            TextView rightText;
+
+            public ViewHolderRightMessage(@NonNull View v) {
+                super(v);
+                rightText = v.findViewById(R.id.rightText);
+            }
+        }
+
+//        public class ViewHolderMessages extends RecyclerView.ViewHolder {
+//
+//            TextView leftText, rightText;
+//            //LinearLayout rightTextLayout;
+//
+//            public ViewHolderMessages(@NonNull View v) {
+//                super(v);
+//
+//                leftText = v.findViewById(R.id.leftText);
+//                rightText = v.findViewById(R.id.rightText);
+//                //  rightTextLayout = v.findViewById(R.id.rightTextLayout);
+//            }
+//        }
 
         public void addMessage(ChatMessage c) {
             Log.d(TAG, "addMessage: ");

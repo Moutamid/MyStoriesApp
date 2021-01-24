@@ -45,13 +45,13 @@ public class Utils {
         return sharedPreferences.getInt(name, 0);
     }
 
-    public Integer getRandomNmbr(int length) {
-        return new Random().nextInt(length) + 1;
-    }
-
-    public String getTime() {
-        return new SimpleDateFormat("hh:mm a").format(new Date());
-    }
+//    public Integer getRandomNmbr(int length) {
+//        return new Random().nextInt(length) + 1;
+//    }
+//
+//    public String getTime() {
+//        return new SimpleDateFormat("hh:mm a").format(new Date());
+//    }
 
 
     public void showMessage(Context context1, String Title, String Data) {

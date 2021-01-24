@@ -18,6 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
+            android:id="@+id/back_btn_stories_list_activity"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/ic_arrow_back" />
@@ -66,7 +67,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/john" />
 
                 <ImageView
                     android:id="@+id/qwqw1"
@@ -127,7 +128,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/alice" />
 
                 <ImageView
                     android:id="@+id/qwqw2"
@@ -197,7 +198,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/charlie" />
 
                 <ImageView
                     android:id="@+id/qwqw8"
@@ -258,7 +259,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/carl" />
 
                 <ImageView
                     android:id="@+id/qwqw7"
@@ -327,7 +328,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/kathy" />
 
                 <ImageView
                     android:id="@+id/qwqw5"
@@ -388,7 +389,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/william" />
 
                 <ImageView
                     android:id="@+id/qwqw6"
@@ -457,7 +458,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/sam" />
 
                 <ImageView
                     android:id="@+id/qwqw9"
@@ -518,7 +519,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/alex" />
 
                 <ImageView
                     android:id="@+id/qwqw0"

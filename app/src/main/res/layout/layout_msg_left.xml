@@ -19,20 +19,4 @@
         android:text="Hello this is me!!"
         android:textColor="#212121" />
 
-    <TextView
-        android:id="@+id/rightText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="7dp"
-        android:background="@drawable/message_right_background"
-        android:elevation="2dp"
-        android:padding="8dp"
-        android:text="Hi!! How are you!!"
-        android:textColor="#fff" />
-
 </RelativeLayout>

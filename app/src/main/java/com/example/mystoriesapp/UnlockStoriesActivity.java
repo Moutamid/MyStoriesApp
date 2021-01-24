@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class UnlockStoriesActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started");
 
         TextView name = findViewById(R.id.textView_name_unlock_story);
+        ImageView profileImage = findViewById(R.id.profile_image_unlock_story);
         TextView intro = findViewById(R.id.textView_intro_unlock_story);
 
         trialBtn = findViewById(R.id.begin_trial_btn);
@@ -42,34 +44,42 @@ public class UnlockStoriesActivity extends AppCompatActivity {
             switch (chatName.toLowerCase()) {
                 case "john":
                     intro.setText(introductions.JohnFunny());
+                    profileImage.setImageResource(R.drawable.john);
                     break;
 
                 case "alice":
                     intro.setText(introductions.AliceFunny());
+                    profileImage.setImageResource(R.drawable.alice);
                     break;
 
                 case "charlie":
                     intro.setText(introductions.CharlieSuspense());
+                    profileImage.setImageResource(R.drawable.charlie);
                     break;
 
                 case "carl":
                     intro.setText(introductions.CarlSuspense());
+                    profileImage.setImageResource(R.drawable.carl);
                     break;
 
                 case "kathy":
                     intro.setText(introductions.KathyThriller());
+                    profileImage.setImageResource(R.drawable.kathy);
                     break;
 
                 case "william":
                     intro.setText(introductions.WilliamThriller());
+                    profileImage.setImageResource(R.drawable.william);
                     break;
 
                 case "sam":
                     intro.setText(introductions.SamOther());
+                    profileImage.setImageResource(R.drawable.sam);
                     break;
 
                 case "alex":
                     intro.setText(introductions.AlexOther());
+                    profileImage.setImageResource(R.drawable.alex);
                     break;
             }
         }

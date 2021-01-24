@@ -7,22 +7,21 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/wewe1"
+        android:id="@+id/chat_profile_img_layout_chats"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/image" />
+        android:src="@drawable/charlie" />
 
     <ImageView
-        android:id="@+id/qwqw1"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:id="@+id/chat_read_status_layout_chats"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:rotation="180"
         android:src="@drawable/ic_arrow_back" />
 
     <!--    <LinearLayout-->
@@ -46,8 +45,8 @@
         android:layout_marginLeft="15dp"
         android:layout_toStartOf="@+id/qwqw1"
         android:layout_toLeftOf="@+id/qwqw1"
-        android:layout_toEndOf="@+id/wewe1"
-        android:layout_toRightOf="@+id/wewe1"
+        android:layout_toEndOf="@+id/chat_profile_img_layout_chats"
+        android:layout_toRightOf="@+id/chat_profile_img_layout_chats"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Lisa"

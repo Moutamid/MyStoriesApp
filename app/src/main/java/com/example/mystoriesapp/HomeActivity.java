@@ -1,6 +1,8 @@
 package com.example.mystoriesapp;
 
 import android.animation.Animator;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +11,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,13 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         username.setText(utils.getStoredString(HomeActivity.this, "username"));
 
         // Setting last chat name
-        last_chat_name.setText(utils.getStoredString(HomeActivity.this, "last_chat"));
-
-        if (last_chat_name.getText().toString().equals("Error")) {
-            finish();
-            startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
-            return;
-        }
+        setLastChatLayoutDetails();
 
         findViewById(R.id.showAllStoriesBtnChatList).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -85,6 +84,53 @@ public class HomeActivity extends AppCompatActivity {
 
         YoYo.with(Techniques.FadeInUp).duration(500).delay(500).playOn(username);
 
+    }
+
+    private void setLastChatLayoutDetails() {
+
+        last_chat_name.setText(utils.getStoredString(HomeActivity.this, "last_chat"));
+
+        if (last_chat_name.getText().toString().equals("Error")) {
+            finish();
+            startActivity(new Intent(HomeActivity.this, StoriesListActivity.class));
+            return;
+        }
+
+        ImageView profileImage = findViewById(R.id.last_chat_profile_img_home);
+
+        switch (last_chat_name.getText().toString().toLowerCase()) {
+            case "john":
+                profileImage.setImageResource(R.drawable.john);
+                break;
+
+            case "alice":
+                profileImage.setImageResource(R.drawable.alice);
+                break;
+
+            case "charlie":
+                profileImage.setImageResource(R.drawable.charlie);
+                break;
+
+            case "carl":
+                profileImage.setImageResource(R.drawable.carl);
+                break;
+
+            case "kathy":
+                profileImage.setImageResource(R.drawable.kathy);
+                break;
+
+            case "william":
+                profileImage.setImageResource(R.drawable.william);
+                break;
+
+            case "sam":
+                profileImage.setImageResource(R.drawable.sam);
+                break;
+
+            case "alex":
+                profileImage.setImageResource(R.drawable.alex);
+                break;
+        }
     }
 
     private void fillNames() {
@@ -154,6 +200,40 @@ public class HomeActivity extends AppCompatActivity {
         suspenseBtn.setOnClickListener(suspenseBtnClickListener());
         alienBtn.setOnClickListener(alienBtnClickListener());
         lastChatlayout.setOnClickListener(lastChatlayoutClickListener());
+
+        findViewById(R.id.credits_img_home_activity).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new AlertDialog.Builder(HomeActivity.this)
+//                        .setMessage("Do you want to watch a video ad before showing credits?")
+//                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+                // TODO: Show a video ad here before opening activity and un-comment these upper and below lines
+                startActivity(new Intent(HomeActivity.this, DeveloperInfoActivity.class));
+//                            }
+//                        })
+//                        .setCancelable(true)
+//                        .show();
+            }
+        });
+        findViewById(R.id.developer_info_img_home_activity).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new AlertDialog.Builder(HomeActivity.this)
+//                        .setMessage("Do you want to watch a video ad before showing developer information?")
+////                        .setMessage("Do you want to watch a video ad before showing developer information?")
+//                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+                // TODO: Show a video ad here before opening activity and un-comment these upper and below lines
+                startActivity(new Intent(HomeActivity.this, DeveloperInfoActivity.class));
+//                            }
+//                        })
+//                        .setCancelable(true)
+//                        .show();
+            }
+        });
     }
 
     @Override
@@ -372,8 +452,8 @@ public class HomeActivity extends AppCompatActivity {
 
         incompleteChatAdapter = new IncompleteChatAdapter();
         this.nmbrChatRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.nmbrChatRecyclerView.setHasFixedSize(true);
-        this.nmbrChatRecyclerView.setNestedScrollingEnabled(false);
+//        this.nmbrChatRecyclerView.setHasFixedSize(true);
+//        this.nmbrChatRecyclerView.setNestedScrollingEnabled(false);
         this.nmbrChatRecyclerView.setAdapter(incompleteChatAdapter);
 
         if (incompleteChatAdapter.getItemCount() == 0)
@@ -385,12 +465,15 @@ public class HomeActivity extends AppCompatActivity {
         public class ViewHolderChats extends RecyclerView.ViewHolder {
             RelativeLayout layout;
             TextView name;
+            ImageView profileImage, readStatus;
 
             public ViewHolderChats(View v) {
                 super(v);
 
                 layout = v.findViewById(R.id.parent_layout_chats);
                 name = v.findViewById(R.id.chat_name_layout_chats);
+                profileImage = v.findViewById(R.id.chat_profile_img_layout_chats);
+                readStatus = v.findViewById(R.id.chat_read_status_layout_chats);
             }
         }
 
@@ -401,11 +484,56 @@ public class HomeActivity extends AppCompatActivity {
         public void onBindViewHolder(ViewHolderChats holder, final int position) {
 
             holder.name.setText(names.get(position));
+
+            switch (names.get(position).toLowerCase()) {
+                case "john":
+                    holder.profileImage.setImageResource(R.drawable.john);
+                    break;
+
+                case "alice":
+                    holder.profileImage.setImageResource(R.drawable.alice);
+                    break;
+
+                case "charlie":
+                    holder.profileImage.setImageResource(R.drawable.charlie);
+                    break;
+
+                case "carl":
+                    holder.profileImage.setImageResource(R.drawable.carl);
+                    break;
+
+                case "kathy":
+                    holder.profileImage.setImageResource(R.drawable.kathy);
+                    break;
+
+                case "william":
+                    holder.profileImage.setImageResource(R.drawable.william);
+                    break;
+
+                case "sam":
+                    holder.profileImage.setImageResource(R.drawable.sam);
+                    break;
+
+                case "alex":
+                    holder.profileImage.setImageResource(R.drawable.alex);
+                    break;
+            }
+
+
+            String status = utils.getStoredString(HomeActivity.this, names.get(position).toLowerCase());
+
+            if (status.equals("incomplete"))
+                holder.readStatus.setImageResource(R.drawable.ic_chat_incomplete);
+
+            if (status.equals("ended"))
+                holder.readStatus.setImageResource(R.drawable.ic_chat_completed);
+
+
             holder.layout.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     String name = names.get(position);
-                    startUnlockStoryActivity(name);
+                    startUnlockStoryActivity(name.toLowerCase());
                 }
             });
 

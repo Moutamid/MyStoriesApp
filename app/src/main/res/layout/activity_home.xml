@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="15dp">
+    android:paddingLeft="15dp"
+    android:paddingStart="15dp"
+    android:paddingTop="15dp"
+    android:paddingEnd="15dp"
+    android:paddingRight="15dp">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,18 +27,20 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/credits_img_home_activity"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_credits" />
 
                 <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/developer_info_img_home_activity"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/ic_developer_info" />
 
             </RelativeLayout>
 
@@ -74,13 +80,13 @@
                 android:padding="15dp">
 
                 <ImageView
-                    android:id="@+id/wewe"
+                    android:id="@+id/last_chat_profile_img_home"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/image" />
+                    android:src="@drawable/john" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,8 +96,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_toStartOf="@+id/qwqw"
                     android:layout_toLeftOf="@+id/qwqw"
-                    android:layout_toEndOf="@+id/wewe"
-                    android:layout_toRightOf="@+id/wewe"
+                    android:layout_toEndOf="@+id/last_chat_profile_img_home"
+                    android:layout_toRightOf="@+id/last_chat_profile_img_home"
                     android:orientation="vertical">
 
                     <TextView
@@ -119,8 +125,8 @@
 
                 <ImageView
                     android:id="@+id/qwqw"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
@@ -259,7 +265,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/john" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -297,7 +303,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/alice" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -334,7 +340,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/charlie" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -373,7 +379,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/carl" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -410,7 +416,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/kathy" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -449,7 +455,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/william" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -486,7 +492,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/sam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -525,7 +531,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="start"
-                                    android:src="@drawable/image" />
+                                    android:src="@drawable/alex" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

@@ -12,12 +12,17 @@ public class StoriesListActivity extends AppCompatActivity {
     private static final String TAG = "StoriesListActivity";
     //private Stories stories = new Stories();
 
-    // TODO: add profile pictures of all the characters
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories_list);
         Log.d(TAG, "onCreate: started");
 
+        findViewById(R.id.back_btn_stories_list_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void StoryClickedMethod(View v) {
