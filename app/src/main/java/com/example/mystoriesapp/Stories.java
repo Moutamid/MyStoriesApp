@@ -24,7 +24,7 @@ public class Stories {
         msgs.add(new ChatMessage("Hey " + utils.getStoredString(context, "userName"), "bot"));
         msgs.add(new ChatMessage("I'm john", "bot"));
         msgs.add(new ChatMessage("How are you?", "bot"));
-        msgs.add(new ChatMessage("5 minutes later", "middle"));
+        //msgs.add(new ChatMessage("5 minutes later", "middle"));
         msgs.add(new ChatMessage("My lawyer says I don’t have to answer that question \uD83E\uDD2D", "me"));
         msgs.add(new ChatMessage("Lawyer??", "bot"));
         msgs.add(new ChatMessage("Which lawyer \uD83E\uDD14\uD83E\uDD14", "bot"));
@@ -33,12 +33,12 @@ public class Stories {
         msgs.add(new ChatMessage("Go to hell \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("No one cares for me \uD83D\uDE2D\uD83D\uDE2D", "me"));
         msgs.add(new ChatMessage("Bro, take it easy!", "bot"));
-        msgs.add(new ChatMessage("10 minutes later", "middle"));
+        //msgs.add(new ChatMessage("10 minutes later", "middle"));
         msgs.add(new ChatMessage("Guess what!", "bot"));
         msgs.add(new ChatMessage("You're single & I'm single too", "bot"));
         msgs.add(new ChatMessage("You know what that means?", "bot"));
         msgs.add(new ChatMessage("What?", "me"));
-        msgs.add(new ChatMessage("15 minutes later", "middle"));
+        //msgs.add(new ChatMessage("15 minutes later", "middle"));
         msgs.add(new ChatMessage("We're both ugly! \uD83D\uDE02", "bot"));
         msgs.add(new ChatMessage("Stop it \uD83D\uDE02", "me"));
 
@@ -54,9 +54,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Alice \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Alice \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }
@@ -69,9 +69,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Charlie \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }
@@ -84,9 +84,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Carl \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Carl \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }
@@ -99,10 +99,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Kathy \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Kathy \uD83D\uDE02", "bot"));
-
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
         return msgs;
     }
 
@@ -114,9 +113,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm William \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm William \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }
@@ -129,9 +128,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Sam \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Sam \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }
@@ -144,9 +143,9 @@ public class Stories {
         msgs.add(new ChatMessage("Hi!", "me"));
         msgs.add(new ChatMessage("Hey", "bot"));
         msgs.add(new ChatMessage("I'm Alex \uD83D\uDE02", "bot"));
-        msgs.add(new ChatMessage("Hi!", "me"));
-        msgs.add(new ChatMessage("Hey", "bot"));
-        msgs.add(new ChatMessage("I'm Alex \uD83D\uDE02", "bot"));
+        msgs.add(new ChatMessage("This will be the conversation between us!", "me"));
+        msgs.add(new ChatMessage("Yeah, it will be fun", "bot"));
+        msgs.add(new ChatMessage("I hope \uD83D\uDE02", "me"));
 
         return msgs;
     }

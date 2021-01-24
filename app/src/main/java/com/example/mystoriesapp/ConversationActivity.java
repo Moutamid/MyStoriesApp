@@ -46,6 +46,12 @@ public class ConversationActivity extends AppCompatActivity {
     private ArrayList<ChatMessage> completeMessagesArrayList = new ArrayList<>();
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onBackPressed() {
         Log.d(TAG, "onBackPressed: ");
 
@@ -169,7 +175,9 @@ public class ConversationActivity extends AppCompatActivity {
         do {
 
 //            if (completeMessagesArrayList.get(i) != null)
-            if (completeMessagesArrayList != null && completeMessagesArrayList.size() > 0) {
+            if (completeMessagesArrayList != null && completeMessagesArrayList.size() > 0
+                    && i != completeMessagesArrayList.size()
+                    && i < completeMessagesArrayList.size()) {
 
                 if (!completeMessagesArrayList.get(i).getMsgUser().equals("middle"))
                 currentMessagesArrayList.add(completeMessagesArrayList.get(i));
@@ -205,7 +213,7 @@ public class ConversationActivity extends AppCompatActivity {
                         String msgUser = completeMessagesArrayList.get(counter).getMsgUser();
 
                         if (msgUser.equals("middle"))
-                            showMiddleScreen(msg);
+                            showMiddleScreen(msg, false);
                         else
                             adapter.addMessage(new ChatMessage(msg, msgUser));
 
@@ -213,7 +221,7 @@ public class ConversationActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    showMiddleScreen("CHAT ENDED");
+                    showMiddleScreen("CHAT ENDED", true);
                     onlinestatus.setText("Offline");
                     onlinestatus.setTextColor(getResources().getColor(R.color.red));
 
@@ -229,7 +237,7 @@ public class ConversationActivity extends AppCompatActivity {
         };
     }
 
-    private void showMiddleScreen(String msg) {
+    private void showMiddleScreen(String msg, final boolean isLastScreen) {
         Log.d(TAG, "showMiddleScreen");
 
         TextView middleScreenText = findViewById(R.id.middle_msg_textview);
@@ -242,6 +250,7 @@ public class ConversationActivity extends AppCompatActivity {
             @Override
             public void run() {
                 middleLayout.animate().alpha(0).setDuration(1500);
+                if (!isLastScreen)
                 nextBtn.animate().translationYBy(-400f).setDuration(400);
             }
         }, 3000);

@@ -244,8 +244,8 @@ public class HomeActivity extends AppCompatActivity {
         fillNames();
         incompleteChatAdapter.notifyDataSetChanged();
 
-        // Setting last chat name
-        last_chat_name.setText(utils.getStoredString(HomeActivity.this, "last_chat"));
+        // Setting last chat name and image
+        setLastChatLayoutDetails();
     }
 
     private OnClickListener lastChatlayoutClickListener() {
