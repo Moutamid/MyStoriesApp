@@ -7,7 +7,7 @@ public class Introductions {
     }
 
     public String AliceFunny() {
-        return "This is the introduction of Alice blah blah blah ajsgfajskgfksadfahsg asjkdfgasjkfhgaskjgfakjfhgkdsgfksdghskjhg gshgkdjgkjhgksdjghk ksdjfghkdsfjghskdjfgh fdgkjsdghksdjghksdjfg kfjghskdjfghkdfjghksjdfgh dskgjshkgjhdskfgjhsdfg ksdjfghkfjghksghkdjsfghkjdfghfdg kdfjghksdjfghkdfsjghksd fgkjfdghk fsdghkjfdgh kjfdgh kf";
+        return "Alice is your girlfriend. She came to your house to meet your family and after partying, she returned back to her house. This story is for males.";
     }
 
     public String CharlieSuspense() {
