@@ -3,7 +3,7 @@ package com.example.mystoriesapp;
 public class Introductions {
 
     public String JohnFunny() {
-        return "This is the introduction of John blah blah blah ajsgfajskgfksadfahsg asjkdfgasjkfhgaskjgfakjfhgkdsgfksdghskjhg gshgkdjgkjhgksdjghk ksdjfghkdsfjghskdjfgh fdgkjsdghksdjghksdjfg kfjghskdjfghkdfjghksjdfgh dskgjshkgjhdskfgjhsdfg ksdjfghkfjghksghkdjsfghkjdfghfdg kdfjghksdjfghkdfsjghksd fgkjfdghk fsdghkjfdgh kjfdgh kf";
+        return "John is your CO-WORKER in your office and a best friend also. He shares his secrets with you including a girl he likes a lot on tinder.";
     }
 
     public String AliceFunny() {
@@ -11,11 +11,11 @@ public class Introductions {
     }
 
     public String CharlieSuspense() {
-        return "This is the introduction of Charlie blah blah blah ajsgfajskgfksadfahsg asjkdfgasjkfhgaskjgfakjfhgkdsgfksdghskjhg gshgkdjgkjhgksdjghk ksdjfghkdsfjghskdjfgh fdgkjsdghksdjghksdjfg kfjghskdjfghkdfjghksjdfgh dskgjshkgjhdskfgjhsdfg ksdjfghkfjghksghkdjsfghkjdfghfdg kdfjghksdjfghkdfsjghksd fgkjfdghk fsdghkjfdgh kjfdgh kf";
+        return "Charlie is your mother. She suddenly uncovers a secret about your life that ends up making you a murderer.";
     }
 
     public String CarlSuspense() {
-        return "This is the introduction of Carl blah blah blah ajsgfajskgfksadfahsg asjkdfgasjkfhgaskjgfakjfhgkdsgfksdghskjhg gshgkdjgkjhgksdjghk ksdjfghkdsfjghskdjfgh fdgkjsdghksdjghksdjfg kfjghskdjfghkdfjghksjdfgh dskgjshkgjhdskfgjhsdfg ksdjfghkfjghksghkdjsfghkjdfghfdg kdfjghksdjfghkdfsjghksd fgkjfdghk fsdghkjfdgh kjfdgh kf";
+        return "Carl is your husband. He forgets a lot and you reminds him all the time but now something strange is happening in your house which he did'nt did.";
     }
 
     public String KathyThriller() {
