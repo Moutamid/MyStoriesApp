@@ -422,11 +422,13 @@ public class Stories {
         msgs.add(new ChatMessage("Please let her go", "bot"));
         msgs.add(new ChatMessage("Shes all that matters to me", "bot"));
         msgs.add(new ChatMessage("Im begging you not to hurt her", "bot"));
+        msgs.add(new ChatMessage("your code is still wrong!", "me"));
         msgs.add(new ChatMessage("Im sorry", "me"));
         msgs.add(new ChatMessage("I never wanted to do this", "me"));
-        msgs.add(new ChatMessage("what?", "bot"));
+        msgs.add(new ChatMessage("what no thats right!!", "bot"));
         msgs.add(new ChatMessage("your wife is gone", "me"));
         msgs.add(new ChatMessage("Goodbye Steve", "me"));
+        msgs.add(new ChatMessage("NOOOOOOOOO!!!!!", "bot"));
 
         return msgs;
     }
