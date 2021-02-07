@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -62,22 +63,34 @@ public class UnlockStoriesActivity extends AppCompatActivity {
                     profileImage.setImageResource(R.drawable.carl);
                     break;
 
-                case "kathy":
+                case "kathy":// TODO: REMOVE THESE AFTER CREATING STORIES AND INTRODUCTIONS
+                    finish();
+                    Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+
                     intro.setText(introductions.KathyThriller());
                     profileImage.setImageResource(R.drawable.kathy);
                     break;
 
                 case "william":
+                    finish();
+                    Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+
                     intro.setText(introductions.WilliamThriller());
                     profileImage.setImageResource(R.drawable.william);
                     break;
 
                 case "sam":
+                    finish();
+                    Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+
                     intro.setText(introductions.SamOther());
                     profileImage.setImageResource(R.drawable.sam);
                     break;
 
                 case "alex":
+                    finish();
+                    Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+
                     intro.setText(introductions.AlexOther());
                     profileImage.setImageResource(R.drawable.alex);
                     break;

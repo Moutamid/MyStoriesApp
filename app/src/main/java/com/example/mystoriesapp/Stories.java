@@ -433,6 +433,8 @@ public class Stories {
         return msgs;
     }
 
+    // TODO: CREATE AND ADD STORIES OF BELOW PEOPLE
+
     public ArrayList<ChatMessage> KathyThriller() {
         Log.d(TAG, "Kathy: returned");
 

@@ -18,7 +18,7 @@ public class Introductions {
         return "Carl is your husband. He forgets a lot and you reminds him all the time but now something strange is happening in your house which he did'nt did.";
     }
 
-    public String KathyThriller() {
+    public String KathyThriller() {// TODO: CREATE INTRODUCTIONS
         return "This is the introduction of Kathy blah blah blah ajsgfajskgfksadfahsg asjkdfgasjkfhgaskjgfakjfhgkdsgfksdghskjhg gshgkdjgkjhgksdjghk ksdjfghkdsfjghskdjfgh fdgkjsdghksdjghksdjfg kfjghskdjfghkdfjghksjdfgh dskgjshkgjhdskfgjhsdfg ksdjfghkfjghksghkdjsfghkjdfghfdg kdfjghksdjfghkdfsjghksd fgkjfdghk fsdghkjfdgh kjfdgh kf";
     }
 
